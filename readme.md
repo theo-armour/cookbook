@@ -1,7 +1,7 @@
 Theo Armour Cookbook Read Me
 ============================
 
-_Code bits..._
+_Code bits... A start. Much to be added and amplified_
 
 ## View this Read Me via GitHub
 
@@ -12,8 +12,6 @@ GitHub Source: <https://github.com/theo-armour/cookbook/>
 ## Chinary
 
 This app is coding example of a simple Chinese character dictionary as a web app.  
-
-To be moved Does not really belong in a 3D happy place.
 
 Details here: <https://github.com/jaanga/cookbook/tree/gh-pages/chinary>
 
