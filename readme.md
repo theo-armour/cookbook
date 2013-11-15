@@ -5,9 +5,9 @@ _Code bits... A start. Much to be added and amplified_
 
 ## View this Read Me via GitHub
 
-GitHub Pages: <http://theo-armour.github.io/cookbook/readme.md>
+Hosted pages on GitHub: <http://theo-armour.github.io/cookbook/>
 
-GitHub Source: <https://github.com/theo-armour/cookbook/>
+Source code on GitHub: <https://github.com/theo-armour/cookbook/>
 
 ## Chinary
 
