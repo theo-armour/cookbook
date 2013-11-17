@@ -13,12 +13,19 @@ Source code on GitHub: <https://github.com/theo-armour/cookbook/>
 
 This app is coding example of a simple Chinese character dictionary as a web app.  
 
-Details here: <https://github.com/jaanga/cookbook/tree/gh-pages/chinary>
+Details here: <https://github.com/theo-armour/cookbook/tree/gh-pages/chinary/>
 
 
 ## docBrowser
 
 Minimal code that enables side-by-side menu and content panels with utmost flexibility for the content of both panels.
 
-Details here: <https://github.com/jaanga/cookbook/tree/gh-pages/doc-browser/>
+Details here: <https://github.com/theo-armour/cookbook/tree/gh-pages/doc-browser/>
+
+## sideBars in File
+
+Expeimenting with User Interface
+
+Details here: <https://github.com/theo-armour/cookbook/tree/gh-pages/sidebars-in-file/>
+
 
