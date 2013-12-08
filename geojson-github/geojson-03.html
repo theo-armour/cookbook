@@ -1,19 +1,25 @@
 <!doctype html>
 <html lang=en>
 <head>
-<title></title>
+<title>ICAO ~ ILS</title>
 <meta charset=utf-8>
-<meta name=author content='Theo Armour'>
 </head>
 <body>
 <script>
 
-document.body.style.cssText = ' font: bold 12pt monospace; ';
-var info = document.body.appendChild( document.createElement( 'div' ) );
-info.innerHTML = '<h1>geojson #3</h1>';
-
+	document.body.style.cssText = ' font: bold 12pt monospace; margin: 0; overflow: hidden;';
+	
+	var info = document.body.appendChild( document.createElement( 'div' ) );
+	info.style.cssText = 'left: 0; margin: auto; position: absolute; right:0; width: 60%;';
+	info.innerHTML = '<center><h1>ICAO ~ ILS</h1></center>';
+	
+	var ifr = document.body.appendChild( document.createElement( 'iframe' ) );
+	ifr.width = '1000%';
+	ifr.height = window.innerHeight;
+	ifr.src = "http://bl.ocks.org/d/b755851372ac3f01e8e7";
+	
+	// <iframe frameborder="0" width="100%" height="300" src="http://bl.ocks.org/d/b755851372ac3f01e8e7"></iframe>
 </script>
 
-<iframe frameborder="0" width="100%" height="300" src="http://bl.ocks.org/d/b755851372ac3f01e8e7"></iframe>
 </body>
 </html>
