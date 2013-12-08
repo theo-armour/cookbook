@@ -3,4 +3,4 @@ geoJSON on GitHub ReadMe
 
 
 
-<http://theo-armour.github.io/cookbook/geojson-github/geojson-github-04.html>
+<http://theo-armour.github.io/cookbook/geojson-github/geojson-04.html>
