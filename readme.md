@@ -9,6 +9,10 @@ Hosted pages on GitHub: <http://theo-armour.github.io/cookbook/>
 
 Source code on GitHub: <https://github.com/theo-armour/cookbook/>
 
+## geoJSON on Github
+
+Details here: <https://github.com/theo-armour/cookbook/tree/gh-pages/geojson-github/>
+
 ## Chinary
 
 This app is coding example of a simple Chinese character dictionary as a web app.  
