@@ -3,7 +3,7 @@ Theo Armour Cookbook Read Me
 
 _Code bits... A start. Much to be added and amplified_
 
-## GitHub Prsesence
+## GitHub Presence
 
 You have two ways of viewing my files here on GitHub:  
 
