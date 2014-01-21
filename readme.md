@@ -3,13 +3,17 @@ Theo Armour Cookbook Read Me
 
 _Code bits... A start. Much to be added and amplified_
 
-## View this Read Me via GitHub
+## GitHub Prsesence
 
-Hosted pages on GitHub: <http://theo-armour.github.io/cookbook/>
+You have two ways of viewing my files here on GitHub:  
 
-Source code on GitHub: <https://github.com/theo-armour/cookbook/>
+* Hosted pages on GitHub: [theo-armour.github.io]( http://theo-armour.github.io/cookbook/ "View the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >  
+* Source code on GitHub: [github.com/theo-armour]( https://github.com/theo-armour/cookbook/ "View the files as source code." )  <scan style=display:none ><< You are now probably here.</scan>
+
 
 ## LRL Vector Thingy
+
+What does the Laplace–Runge–Lenz vector actually look like?
 
 Details here: <https://github.com/theo-armour/cookbook/tree/gh-pages/lrl-vector-thingy/>
 

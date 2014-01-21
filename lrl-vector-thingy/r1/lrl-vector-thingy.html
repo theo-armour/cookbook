@@ -71,7 +71,7 @@
 		object1.add( new THREE.ArrowHelper( v(0, 0, 1), v(0, 0, 0), 150, 0x0000cc) );
 
 		geometry = new THREE.SphereGeometry( 100, 50, 50 );
-		var texture = THREE.ImageUtils.loadTexture( "Johannes_Kepler.jpg" );
+		var texture = THREE.ImageUtils.loadTexture( "johannes-kepler.jpg" );
 		material = new THREE.MeshBasicMaterial( {  map: texture, shading: THREE.SmoothShading } );
 		mesh = new THREE.Mesh( geometry, material );
 		mesh.receiveShadow = true;
@@ -107,7 +107,7 @@
 		mesh = new THREE.Mesh( geometry, material );
 		object2.add( mesh );
 		
-		var texture = THREE.ImageUtils.loadTexture( "Tycho-Brahe.jpg" );
+		var texture = THREE.ImageUtils.loadTexture( "tycho-brahe.jpg" );
 		geometry = new THREE.SphereGeometry( 10, 50, 50 );
 		// material = new THREE.MeshNormalMaterial( { opacity: 0.5, shading: THREE.SmoothShading, transparent: true } );
 		material = new THREE.MeshBasicMaterial( {  map: texture, shading: THREE.SmoothShading } );
