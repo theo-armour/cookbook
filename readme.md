@@ -9,9 +9,15 @@ Hosted pages on GitHub: <http://theo-armour.github.io/cookbook/>
 
 Source code on GitHub: <https://github.com/theo-armour/cookbook/>
 
+## LRL Vector Thingy
+
+Details here: <https://github.com/theo-armour/cookbook/tree/gh-pages/lrl-vector-thingy/>
+
+
 ## geoJSON on Github
 
 Details here: <https://github.com/theo-armour/cookbook/tree/gh-pages/geojson-github/>
+
 
 ## Chinary
 
