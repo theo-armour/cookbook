@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang=en>
+<head>
+<title></title>
+<meta charset=utf-8>
+<meta name=author content='Theo Armour'>
+</head>
+<body>
+<script>
+
+	var mouseX = 0;
+	var mouseXOnMouseDown = 0;
+
+	var windowHalfX = window.innerWidth / 2;
+	var windowHalfY = window.innerHeight / 2;
+
+	init();
+
+	function init() {
+		document.body.style.cssText = ' font: bold 12pt monospace; ';
+
+		var info = document.body.appendChild( document.createElement( 'div' ) );
+		info.style.cssText = 'border: 2px red solid; height: 300px; width: 500px;';
+		info.innerHTML = '<h1>Event Listerner</h1>';
+
+		document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+		document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+		document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+	}
+
+	function onDocumentMouseDown( event ) {
+
+		event.preventDefault();
+
+		document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+		document.addEventListener( 'mouseup', onDocumentMouseUp, false );
+		document.addEventListener( 'mouseout', onDocumentMouseOut, false );
+
+		mouseXOnMouseDown = event.clientX - windowHalfX;
+console.log( mouseXOnMouseDown );
+
+	}
+
+	function onDocumentMouseMove( event ) {
+
+		mouseX = event.clientX - windowHalfX;
+
+console.log( mouseX )
+
+	}
+
+	function onDocumentMouseUp( event ) {
+
+		document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
+		document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
+		document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
+
+	}
+
+	function onDocumentMouseOut( event ) {
+
+		document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
+		document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
+		document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
+
+	}
+
+	function onDocumentTouchStart( event ) {
+
+		if ( event.touches.length === 1 ) {
+
+			event.preventDefault();
+
+			mouseXOnMouseDown = event.touches[ 0 ].pageX - windowHalfX;
+console.log( mouseXOnMouseDown );
+
+		}
+
+	}
+
+	function onDocumentTouchMove( event ) {
+
+		if ( event.touches.length === 1 ) {
+
+			event.preventDefault();
+
+			mouseX = event.touches[ 0 ].pageX - windowHalfX;
+console.log( mouseX );
+
+		}
+
+	}
+</script>
+</body>
+</html>
+
