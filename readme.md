@@ -11,6 +11,12 @@ You have two ways of viewing my files here on GitHub:
 * Source code on GitHub: [github.com/theo-armour]( https://github.com/theo-armour/cookbook/ "View the files as source code." )  <scan style=display:none ><< You are now probably here.</scan>
 
 
+## Touch Try
+
+Ways of swiping
+
+Details here: <https://github.com/theo-armour/cookbook/tree/gh-pages/touch-try/>
+
 ## LRL Vector Thingy
 
 What does the Laplace–Runge–Lenz vector actually look like?
