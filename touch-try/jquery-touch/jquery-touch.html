@@ -6,8 +6,9 @@
 <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 <script>
 $(document).on("pageinit","#pageone",function(){
-  $("p").on("swiperight",function(){
-    alert("You swiped right!");
+  $("p").on("swipeleft",function(){
+    alert("You swiped left!");
+  });                       
 });
 </script>
 </head>
@@ -15,11 +16,11 @@ $(document).on("pageinit","#pageone",function(){
 
 <div data-role="page" id="pageone">
   <div data-role="header">
-    <h1>The swiperight Event</h1>
+    <h1>The swipeleft Event</h1>
   </div>
 
   <div data-role="content">
-    <p style="border:1px solid black;margin:5px;padding:80px;">Swipe me in the right direction - do not swipe outside the border!</p>  
+    <p style="border:1px solid black;margin:5px;padding:90px;">Swipe me in the left direction - do not swipe outside the border!</p>
   </div>
 
   <div data-role="footer">
