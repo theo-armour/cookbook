@@ -21,7 +21,7 @@
 
 		var info = document.body.appendChild( document.createElement( 'div' ) );
 		info.style.cssText = 'border: 2px red solid; height: 300px; width: 500px;';
-		info.innerHTML = '<h1>Event Listerner</h1><div id=data></div>';
+		info.innerHTML = '<h1>Event Listener</h1><div id=data></div>';
 
 		document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 		document.addEventListener( 'touchstart', onDocumentTouchStart, false );
@@ -72,7 +72,7 @@ console.log( mouseX )
 			event.preventDefault();
 
 			mouseXOnMouseDown = event.touches[ 0 ].pageX - windowHalfX;
-		data.innerHTML = 'mouseX: ' + mouseX + ' mouseXOnMouseDown: ' + mouseXOnMouseDown; );
+		data.innerHTML = 'mouseX: ' + mouseX + ' mouseXOnMouseDown: ' + mouseXOnMouseDown;
 
 		}
 
@@ -85,7 +85,7 @@ console.log( mouseX )
 			event.preventDefault();
 
 			mouseX = event.touches[ 0 ].pageX - windowHalfX;
-		data.innerHTML = 'mouseX: ' + mouseX + ' mouseXOnMouseDown: ' + mouseXOnMouseDown; );
+		data.innerHTML = 'mouseX: ' + mouseX + ' mouseXOnMouseDown: ' + mouseXOnMouseDown;
 
 		}
 
