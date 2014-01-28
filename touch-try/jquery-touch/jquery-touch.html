@@ -8,7 +8,10 @@
 $(document).on("pageinit","#pageone",function(){
   $("p").on("swipeleft",function(){
     alert("You swiped left!");
-  });                       
+  });       
+  $("p").on("swiperight",function(){
+    alert("You swiped right!");
+  });  
 });
 </script>
 </head>
@@ -20,7 +23,7 @@ $(document).on("pageinit","#pageone",function(){
   </div>
 
   <div data-role="content">
-    <p style="border:1px solid black;margin:5px;padding:90px;">Swipe me in the left direction - do not swipe outside the border!</p>
+    <p style="border:1px solid black;margin:5px;padding:90px;">Swipe me in the left or right direction - do not swipe outside the border!</p>
   </div>
 
   <div data-role="footer">
