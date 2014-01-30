@@ -1,78 +1,42 @@
 <!doctype html>
 <html lang=en>
 <head>
-<title></title>
+<title>mobi-data</title>
 <meta charset=utf-8>
-<meta name=author content='Theo Armour'>
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-<style>
-/* mobile styles */
-@media handheld {
-
-	html, body {
-		font: 12px/15px sans-serif;
-		background: #fff;
-		padding: 3px;
-		color: #000;
-		margin: 0;
-		}
-	#sidebar, #footer {
-		display: none;
-		}
-	h1, h2, h3, h4, h5, h6 {
-		font-weight: normal;
-		}
-	#content img { 
-		max-width: 250px;
-		}
-	.center {
-		width: 100% !important;
-		text-align: center;
-		}
-	a:link, a:visited {
-		text-decoration: underline;
-		color: #0000CC;
-		}
-	a:hover, a:active {
-		text-decoration: underline;
-		color: #660066;
-		}
-
-}
-/* iPhone-specific styles */
-@media only screen and (max-device-width: 480px) { 
-
-	html {
-		-webkit-text-size-adjust: none;
-		}
-
-}
-</style>
 </head>
 <body>
 <script>
 
 	var mouseX = 0;
 	var mouseY = 0;
+
 	var mouseXOnMouseDown = 0;
 	var mouseYOnMouseDown = 0;
 
 	var windowHalfX = window.innerWidth / 2;
 	var windowHalfY = window.innerHeight / 2;
 
+	var titles = [ 'file1','file2','file3','file4','file5','file6','file7','file8','file9']
+	var count = 3;
 	init();
 
 	function init() {
-		document.body.style.cssText = ' font: bold 12pt monospace; ';
+		document.body.style.cssText = ' font: normal 12pt sans-serif; ';
 
 		var info = document.body.appendChild( document.createElement( 'div' ) );
 		info.style.cssText = 'border: 2px red solid;';
 		info.innerHTML = '<h1>Event Listener</h1>' +
-		'<div id=data></div>';
+			'<div id=data></div>' +
+			'<div id=content></div>' +
+			'<div id=navigation></div>' +
+		'';
 
 		document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 		document.addEventListener( 'touchstart', onDocumentTouchStart, false );
 		document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+		
+		updateNavigation( count )
 	}
 
 	function onDocumentMouseDown( event ) {
@@ -109,6 +73,7 @@
 		if ( event.touches.length === 1 ) {
 			event.preventDefault();
 			mouseXOnMouseDown = event.touches[ 0 ].pageX;
+			mouseYOnMouseDown = event.touches[ 0 ].pageY;
 		}
 	}
 
@@ -122,11 +87,25 @@
 	}
 	function updateText(){
 		if ( mouseX - mouseXOnMouseDown > windowHalfX ) {
+			document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
+			document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
+			document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
 			var swipeX = 'right' ;
+			count++;
+			if ( count >= titles.length ) count = 0;
+			updateNavigation( count );
+
 		} else if ( mouseXOnMouseDown - mouseX> windowHalfX ) {
+
+			document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
+			document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
+			document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
+
 			var swipeX = 'left';
+			updateNavigation( count-- )
 		} else {
 			var swipeX = 'none';
+
 		}
 		if ( mouseY - mouseYOnMouseDown > windowHalfY ) {
 			var swipeY = 'down' ;
@@ -142,6 +121,25 @@
 		'windowHalfY: ' + windowHalfY + 
 		' mouseY: ' + mouseY + ' mouseYOnMouseDown: ' + mouseYOnMouseDown +
 		' swipe y: ' + swipeY;
+	}
+
+	function updateNavigation( cnt ) {
+		if ( cnt >= titles.length  - 1) { 
+			var next = 0;
+		} else {
+			var next = cnt + 1;
+		}
+
+
+		if ( cnt === 0 ) { 
+			var prev = titles.length - 1
+		} else {
+			var prev = cnt - 1;
+		}
+		var txt = titles[ prev ] + ' - ' + titles[ next];
+
+		content.innerHTML = titles[ cnt ];
+		navigation.innerHTML = txt;
 	}
 </script>
 </body>
