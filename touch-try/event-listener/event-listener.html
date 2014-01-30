@@ -53,7 +53,9 @@
 <script>
 
 	var mouseX = 0;
+	var mouseY = 0;
 	var mouseXOnMouseDown = 0;
+	var mouseYOnMouseDown = 0;
 
 	var windowHalfX = window.innerWidth / 2;
 	var windowHalfY = window.innerHeight / 2;
@@ -64,8 +66,9 @@
 		document.body.style.cssText = ' font: bold 12pt monospace; ';
 
 		var info = document.body.appendChild( document.createElement( 'div' ) );
-		info.style.cssText = 'border: 2px red solid; height: 300px; width: 500px;';
-		info.innerHTML = '<h1>Event Listener</h1><div id=data></div>';
+		info.style.cssText = 'border: 2px red solid;';
+		info.innerHTML = '<h1>Event Listener</h1>' +
+		'<div id=data></div>';
 
 		document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 		document.addEventListener( 'touchstart', onDocumentTouchStart, false );
@@ -73,68 +76,73 @@
 	}
 
 	function onDocumentMouseDown( event ) {
-
 		event.preventDefault();
 
 		document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 		document.addEventListener( 'mouseup', onDocumentMouseUp, false );
 		document.addEventListener( 'mouseout', onDocumentMouseOut, false );
 
-		mouseXOnMouseDown = event.clientX - windowHalfX;
-		data.innerHTML = 'mouseX: ' + mouseX + ' mouseXOnMouseDown: ' + mouseXOnMouseDown;
+		mouseXOnMouseDown = event.clientX;
+		mouseYOnMouseDown = event.clientY;
 
 	}
 
 	function onDocumentMouseMove( event ) {
-
-		mouseX = event.clientX - windowHalfX;
-
-			data.innerHTML = 'mouseX: ' + mouseX + ' mouseXOnMouseDown: ' + mouseXOnMouseDown;
-
+		mouseX = event.clientX;
+		mouseY = event.clientY;
+		updateText();
 	}
 
 	function onDocumentMouseUp( event ) {
-
 		document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
 		document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
 		document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
-
 	}
 
 	function onDocumentMouseOut( event ) {
-
 		document.removeEventListener( 'mousemove', onDocumentMouseMove, false );
 		document.removeEventListener( 'mouseup', onDocumentMouseUp, false );
 		document.removeEventListener( 'mouseout', onDocumentMouseOut, false );
-
 	}
 
 	function onDocumentTouchStart( event ) {
-
 		if ( event.touches.length === 1 ) {
-
 			event.preventDefault();
-
-			mouseXOnMouseDown = event.touches[ 0 ].pageX - windowHalfX;
-			data.innerHTML = 'mouseX: ' + mouseX + ' mouseXOnMouseDown: ' + mouseXOnMouseDown;
-
+			mouseXOnMouseDown = event.touches[ 0 ].pageX;
 		}
-
 	}
 
 	function onDocumentTouchMove( event ) {
-
 		if ( event.touches.length === 1 ) {
-
 			event.preventDefault();
-
-			mouseX = event.touches[ 0 ].pageX - windowHalfX;
-		data.innerHTML = 'mouseX: ' + mouseX + ' mouseXOnMouseDown: ' + mouseXOnMouseDown;
-
+			mouseX = event.touches[ 0 ].pageX;
+			mouseY = event.touches[ 0 ].pageY;
+			updateText();
+		}
+	}
+	function updateText(){
+		if ( mouseX - mouseXOnMouseDown > windowHalfX ) {
+			var swipeX = 'right' ;
+		} else if ( mouseXOnMouseDown - mouseX> windowHalfX ) {
+			var swipeX = 'left';
+		} else {
+			var swipeX = 'none';
+		}
+		if ( mouseY - mouseYOnMouseDown > windowHalfY ) {
+			var swipeY = 'down' ;
+		} else if ( mouseYOnMouseDown - mouseY > windowHalfY ) {
+			var swipeY = 'up';
+		} else {
+			var swipeY = 'none';
 		}
 
+		data.innerHTML = 'windowHalfX: ' + windowHalfX + 
+		' mouseX: ' + mouseX + ' mouseXOnMouseDown: ' + mouseXOnMouseDown +
+		' swipe x: ' + swipeX + '<br>' +
+		'windowHalfY: ' + windowHalfY + 
+		' mouseY: ' + mouseY + ' mouseYOnMouseDown: ' + mouseYOnMouseDown +
+		' swipe y: ' + swipeY;
 	}
 </script>
 </body>
 </html>
-
