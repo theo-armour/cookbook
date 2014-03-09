@@ -10,18 +10,30 @@ You have two ways of viewing my files here on GitHub:
 * Hosted pages on GitHub: [theo-armour.github.io]( http://theo-armour.github.io/cookbook/ "View the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >  
 * Source code on GitHub: [github.com/theo-armour]( https://github.com/theo-armour/cookbook/ "View the files as source code." )  <scan style=display:none ><< You are now probably here.</scan>
 
+## Terrain Try
+
+Demonstrating ability to run Jaanga Terrain data in another project
+
+Details here: [Terrain Try Read Me]( https://github.com/theo-armour/cookbook/tree/gh-pages/terrain-try/ )
+
+## Show Hide 
+
+Show and hide text in an HTML file
+
+Details here: [Show Hide Read Me]( https://github.com/theo-armour/cookbook/tree/gh-pages/show-hide/ )
+
 
 ## Touch Try
 
 Ways of swiping
 
-Details here: <https://github.com/theo-armour/cookbook/tree/gh-pages/touch-try/>
+Details here: [Touch Try Read Me ]( https://github.com/theo-armour/cookbook/tree/gh-pages/touch-try/ )
 
 ## LRL Vector Thingy
 
 What does the Laplace–Runge–Lenz vector actually look like?
 
-Details here: <https://github.com/theo-armour/cookbook/tree/gh-pages/lrl-vector-thingy/>
+Details here: [LRL Vector Thingy Read Me]( https://github.com/theo-armour/cookbook/tree/gh-pages/lrl-vector-thingy/ )
 
 
 ## geoJSON on Github
