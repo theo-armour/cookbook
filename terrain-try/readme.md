@@ -3,7 +3,7 @@ Read Me
 
 ### Live Demo
 
-xxx xxx
+Terrain Try
 <iframe src="http://theo-armour.github.io/cookbook/terrain-try/latest/index.html" width=100% height=500px class='overview' >
 There is an `iframe` here. It is not visible when viewed on github.com/fgx. To view, please go to fgx.github.io. See 'Project Links' just below.
 </iframe>
@@ -11,7 +11,7 @@ There is an `iframe` here. It is not visible when viewed on github.com/fgx. To v
 
 
 ## Concept
-Demonstrating abity to run Jaanga Terrain data in another project
+Demonstrating ability to run Jaanga Terrain data in another project
 
 ## Features
 Can fork data on server without needing to download to your local computer
@@ -26,8 +26,8 @@ Can fork data on server without needing to download to your local computer
 
 You have two ways of viewing the FGx files:
 
-* Code hosted on GitHub: [fgx.github.io]( http://theo-armour.github.io/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >  
-* Source code on GitHub: [github.com/fgx]( https://github.com/theo-armour/ "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>
+* Code hosted on GitHub: [theo-armour.github.io]( http://theo-armour.github.io/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >  
+* Source code on GitHub: [github.com/theo-armour]( https://github.com/theo-armour/ "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>
 
 Theo Armour home page: [theoarmour.com]( http://theoarmour.com )
 
