@@ -5,7 +5,7 @@
 	<a href=JavaScript:displayPage("readme.md",rm); >Read Me</a>
 </p>
 
-<i class="fa fa-external-link"></i> [Sonimichele (latest)]( http://theo-armour.github.io/cookbook/sonimichele/latest/ )
+<i class="fa fa-external-link"></i> [Sonichele (latest)]( http://theo-armour.github.io/cookbook/sonichele/latest/ )
 
 <i class="fa fa-external-link"></i> [Source Code on GitHub]( https://github.com/theo-armour/cookbook/tree/gh-pages/sonichele/ ) 
 <br>
