@@ -1,5 +1,5 @@
 Theo Armour Cookbook Read Me
-============================
+===
 
 _Code bits... A start. Much to be added and amplified_
 
@@ -13,16 +13,17 @@ You have two ways of viewing my files here on GitHub:
 
 ## Sonichele
 
-Traslate numeric sound data in ASCII format in to 3D animations viewable in a browser
+Traslate numeric sound data in ASCII format to 3D animations viewable in a browser
 
-[Sonichele Read Me]( https://github.com/theo-armour/cookbook/tree/gh-pages/sonichele/ )
+[Sonichele read me]( http://theo-armour.github.io/cookbook/sonichele/readme-reader.html )
+[Sonichele soure code]( https://github.com/theo-armour/cookbook/tree/gh-pages/sonichele/ )
 
 
 ## Terrain Try
 
 Demonstrating ability to run Jaanga Terrain data in another project
 
-Details here: [Terrain Try Read Me]( https://github.com/theo-armour/cookbook/tree/gh-pages/terrain-try/ )
+Details here: [Terrain Try source code]( https://github.com/theo-armour/cookbook/tree/gh-pages/terrain-try/ )
 
 ## Show Hide 
 
