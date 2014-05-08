@@ -20,14 +20,16 @@ _Frozen sound_
 
 <!--
 ## Features
+-->
 
 
 ## Road Map
--->
+
+* Make the data available in compressed binary files
 
 ## Issues /Bugs
 
-* Sample data is the first 3MB og a 900+ MB data file
+* Sample data is the first 3MB of the original 900+ MB data file (not uploaded to GitHub )
 * Sample file contains errors due to improper saving
 
 * The data is not currently being read and displayed properly.
