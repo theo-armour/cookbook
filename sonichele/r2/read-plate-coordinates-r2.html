@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>Read Plate Coordinates 13x13</title>
+<meta charset=utf-8 />
+<meta name=author content='Theo Armour' />
+</head>
+<body>
+<script>
+
+	var fileName = '../plate_coordinates_13x13.txt';
+	var data, lines, numbers;
+	var frame = [];
+	var frameIndex = 200;
+
+	init();
+
+	function init() {
+
+		document.body.style.cssText = ' font: bold 12pt monospace; ';
+
+		var info = document.body.appendChild( document.createElement( 'div' ) );
+		info.innerHTML = '<h1>' + document.title + '</h1>' +
+			'<div id=msg ></div>';
+
+		data = requestFile( fileName );
+
+		lines = data.split(/\r\n|\n/);
+		var length = lines.length;
+		numbers = [];
+		var sep = '\t';
+		for ( var i = 0; i < length; i++ ) {
+			numbers.push( lines[i].split( sep ) );
+		}
+
+		for ( var i = 0; i < 169; i++ ) {
+			frame.push( numbers[i][frameIndex] );
+		}
+
+		var txt = '';
+		for (var x = 0; x < 13; x++) {
+			for (var y = 0; y < 13; y++) {
+				txt += frame[ x * 13 + y] + ' ';
+			}
+			txt += '<br>';
+		}
+
+		msg.innerHTML = 'Lines: ' + lines.length + ' Numbers: ' + numbers[0].length + '<br>' + txt;
+	}
+
+	function requestFile( fname ) {
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.crossOrigin = "Anonymous";
+		xmlHttp.open( 'GET', fname, false );
+//		xmlHttp.setRequestHeader('Range', 'bytes=' + start + '-' + stop );
+		xmlHttp.send( null );
+		return xmlHttp.responseText;
+	}
+
+</script>
+</body>
+</html>

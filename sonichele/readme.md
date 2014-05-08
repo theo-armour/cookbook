@@ -6,14 +6,16 @@ Sonichele Read Me
 <iframe src="http://theo-armour.github.io/cookbook/sonichele/latest/index.html" width=100% height=500px class='overview' >
 There is an `iframe` here. It is not visible when viewed on github.com. To view, please go to theo-armour.github.io. See 'Project Links' just below.
 </iframe>
-_Frozen sound_
+_Sonichele_
+
+[Sonichele - full screen (latest)]( http://theo-armour.github.io/cookbook/sonichele/latest/index.html ) 
 
 ## Concept
 
 ### Mission 
 <!-- a statement of a rationale, applicable now as well as in the future -->
 
-* Translate numeric sound data in ASCII format in to 3D animations viewable in a browser
+* Translate numeric sound data in ASCII format to 3D animations viewable in a browser
   
 ### Vision 
 <!--  a descriptive picture of a desired future state -->
@@ -25,14 +27,14 @@ _Frozen sound_
 
 ## Road Map
 
+* Add logarithmic vertical scale
+* Enhance rendering, shaing and lighting
+* Provide frame by frame movement
+* Access full-size data sets
 * Make the data available in compressed binary files
 
 ## Issues /Bugs
 
-* Sample data is the first 3MB of the original 900+ MB data file (not uploaded to GitHub )
-* Sample file contains errors due to improper saving
-
-* The data is not currently being read and displayed properly.
 
 
 ## Project Links
@@ -67,6 +69,10 @@ Bugs on browsers other than Chrome need not be reported until such time as the w
 This repository contains files that are at an early and volatile stage. Not all licensing requirements may have been fully met let alone identified. It is the intension of the authors to play fair and all such requirements will either be met or the feature in question will turned off.
 
 ### Change Log
+
+2014-05-08 ~ Theo
+
+* uses 13x13 data  set
 
 2014-05-07 ~ Theo
 

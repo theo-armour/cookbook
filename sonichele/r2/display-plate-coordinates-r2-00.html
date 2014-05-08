@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>Sonichele R2</title>
+<meta charset=utf-8 >
+<meta name=viewport content=width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0 >
+</head>
+<body>
+<script src=http://mrdoob.github.io/three.js/build/three.min.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/controls/TrackballControls.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
+<script>
+
+	var fileName = '../plate_coordinates_13x13.txt';
+	var data, lines, numbers;
+	var frame = [];
+	var frameIndex = 200;
+
+	var data, numbers;
+
+	var mesh, info, stats, renderer, scene, camera, controls;
+
+	init();
+	animate();
+
+	function init() {
+		var geometry, material;
+
+		document.body.style.cssText = 'font: 600 12pt monospace; margin: 0; overflow: hidden' ;
+
+		info = document.body.appendChild( document.createElement( 'div' ) );
+
+		info.style.cssText = 'left: 20px; position: absolute; top: 0px; ';
+		info.innerHTML = '<h1>' + document.title + '<h1>' +
+			'<div id=msg></div>' + 
+			'<div id=count></div>';;
+
+		data = requestFile( fileName );
+
+/*
+		data = data.replace(/\n/g, "\t"); 
+		var sep = '\t';
+		numbers = data.split( sep );
+
+		msg.innerHTML = 'Frame: ' + frame + ' numbers read: ' + numbers.length;
+*/
+
+		lines = data.split(/\r\n|\n/);
+		var length = lines.length;
+		numbers = [];
+		var sep = '\t';
+		for ( var i = 0; i < length; i++ ) {
+			numbers.push( lines[i].split( sep ) );
+		}
+		
+/*		
+		for ( var i = 0; i < 169; i++ ) {
+			frame.push( numbers[i][frameIndex] );
+		}
+
+		var txt = '';
+
+		for (var x = 0; x < 13; x++) {
+			for (var y = 0; y < 13; y++) {
+				txt += frame[ x * 13 + y] + ' ';
+			}
+			txt += '<br>';
+		}
+*/
+
+		msg.innerHTML = 'Lines: ' + lines.length + ' Frames: ' + numbers[0].length + '<br>' + 
+		'';
+
+		stats = new Stats();
+		stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; zIndex: 100; ';
+		document.body.appendChild( stats.domElement );
+
+		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff }  );
+		renderer.setSize( window.innerWidth, window.innerHeight );
+		document.body.appendChild( renderer.domElement );
+		scene = new THREE.Scene();
+
+		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
+		camera.position.set( 100, 100, 100 );
+		controls = new THREE.TrackballControls( camera, renderer.domElement );
+
+// mesh
+		geometry = new THREE.PlaneGeometry( 200, 200, 13, 13 );
+		geometry.applyMatrix( new THREE.Matrix4().makeRotationX( Math.PI / 2 ) );
+		material = new THREE.MeshNormalMaterial( { side: THREE.DoubleSide, wireframe: true });
+		mesh = new THREE.Mesh( geometry, material );
+		scene.add( mesh );
+
+		updateFrame( frameIndex );
+/*
+		var idx;
+		for (var x = 0; x < 13; x++) {
+			for (var y = 0; y < 13; y++) {
+				idx = x * 13 + y;
+				mesh.geometry.vertices[ idx ].y = 500 * frame[ idx];
+			}
+			txt += '<br>';
+		}
+		
+
+		var index = frame * matrix;
+
+		for (var i = 0; i < matrix; i++) {
+			mesh.geometry.vertices[i].y = 700 * parseFloat( numbers[ index + i ] );
+			if ( i < 50 ) console.log( index + i, numbers[ index + i ] );
+			if ( i < 50 ) console.log( index + i, numbers[ index + i ] );
+		}
+
+
+
+// Alternative version using X and Y
+		for ( var x = 0; x < 126; x++ ) {
+			for ( var y = 0; y < 126; y++ ) {
+			idx = x * 126 + y;
+			mesh.geometry.vertices[ idx ].y = 500 * parseFloat( numbers[ index + idx ] );
+//			if ( idx < 50 ) msg.innerHTML +=  ( index + idx ) + ' ' + numbers[ index +  idx ]  + '<br>';
+			}
+		} 
+*/
+	}
+	
+	function updateFrame() {
+		frame = [];
+		for ( var i = 0; i < 169; i++ ) {
+			frame.push( numbers[i][frameIndex] );
+		}
+		var idx;
+		for (var x = 0; x < 13; x++) {
+			for (var y = 0; y < 13; y++) {
+				idx = x * 13 + y;
+				mesh.geometry.vertices[ idx ].y = Math.log( 500 * frame[ idx] );
+			}
+		}
+		mesh.geometry.verticesNeedUpdate = true;  
+		frameIndex++;
+		if (frameIndex > 1469 ) frameIndex = 0;
+		count.innerHTML = 'Frame: ' + frameIndex;
+	}
+
+	function animate() {
+		requestAnimationFrame( animate );
+		renderer.render( scene, camera );
+		controls.update();
+		stats.update();
+		
+		updateFrame();
+	}
+
+	function requestFile( fname, start, stop ) {
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.crossOrigin = "Anonymous"; 
+		xmlHttp.open( 'GET', fname, false );
+		xmlHttp.setRequestHeader('Range', 'bytes=' + start + '-' + stop );
+		xmlHttp.send( null );
+		return xmlHttp.responseText;
+	}
+
+</script>
+</body>
+</html>
