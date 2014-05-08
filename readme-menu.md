@@ -5,6 +5,10 @@
 	<a href=JavaScript:displayPage("readme.md",rm); >Read Me</a>
 </p>
 
+<p>
+	<a href=sonichele/index.html >Sonichele Read Me</a>
+</p>
+
 
 <p>
 	<a href=terrain-try/index.html >Terrain-Try Read Me</a>

@@ -10,6 +10,14 @@ You have two ways of viewing my files here on GitHub:
 * Hosted pages on GitHub: [theo-armour.github.io]( http://theo-armour.github.io/cookbook/ "View the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >  
 * Source code on GitHub: [github.com/theo-armour]( https://github.com/theo-armour/cookbook/ "View the files as source code." )  <scan style=display:none ><< You are now probably here.</scan>
 
+
+## Sonichele
+
+Traslate numeric sound data in ASCII format in to 3D animations viewable in a browser
+
+[Sonichele Read Me]( https://github.com/theo-armour/cookbook/tree/gh-pages/sonichele/ )
+
+
 ## Terrain Try
 
 Demonstrating ability to run Jaanga Terrain data in another project

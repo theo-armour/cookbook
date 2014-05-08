@@ -13,7 +13,7 @@ _Frozen sound_
 ### Mission 
 <!-- a statement of a rationale, applicable now as well as in the future -->
 
-* Traslate numeric sound data in ASCII format in to 3D animations viewable in a browser
+* Translate numeric sound data in ASCII format in to 3D animations viewable in a browser
   
 ### Vision 
 <!--  a descriptive picture of a desired future state -->
