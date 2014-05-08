@@ -15,7 +15,8 @@ _Frozen sound_
 
 * Traslate numeric sound data in ASCII format in to 3D animations viewable in a browser
   
-### Vision <!--  a descriptive picture of a desired future state -->
+### Vision 
+<!--  a descriptive picture of a desired future state -->
 
 <!--
 ## Features
