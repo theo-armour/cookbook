@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>Howdy</title>
+<meta charset=utf-8 />
+<meta name=author content='Theo Armour' />
+</head>
+<body>
+<script>
+
+//	var fileName = 'plate_coordinates.txt';
+	var fileName = 'coordinates-lines-0-1000.txt';
+	var start = 0;
+	var stop = 1000 ;
+	var info;
+
+	init();
+
+	function init() {
+
+	document.body.style.cssText = ' font: bold 12pt monospace; ';
+
+	info = document.body.appendChild( document.createElement( 'div' ) );
+	info.innerHTML = '<h1>' + document.title + '</h1>' +
+		'<div id=msg ></div>';
+
+		requestFile( fileName, start, stop );
+
+	}
+
+
+	var xmlhttp;
+	
+	function requestFile( fname, start, stop ) {
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.crossOrigin = "Anonymous"; 
+		xmlhttp.open( 'GET', fname, true );
+		xmlhttp.onreadystatechange = callbackFile;
+		xmlhttp.setRequestHeader('Range', 'bytes=' + start + '-' + stop );
+		xmlhttp.send( null );
+		callbackCount = 0;
+	}
+	
+	function callbackFile() {
+		if ( xmlhttp.readyState == 4  ) {
+			// leftBody.textContent = xmlhttp.responseText;	
+			msg.innerHTML  = xmlhttp.responseText;	
+			
+		} else {
+			console.log( 'waiting...' );
+			console.log( '1. file.readyState', file.readyState);
+			console.log( '2. file.responseXML', file.responseXML);
+			console.log( '3. file.status', file.status);
+			console.log( '4. file.statusText', file.statusText );
+		}
+	}
+
+
+</script>
+</body>
+</html>
