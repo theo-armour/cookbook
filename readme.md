@@ -15,8 +15,8 @@ You have two ways of viewing my files here on GitHub:
 
 Traslate numeric sound data in ASCII format to 3D animations viewable in a browser
 
-[Sonichele read me]( http://theo-armour.github.io/cookbook/sonichele/readme-reader.html )
-[Sonichele soure code]( https://github.com/theo-armour/cookbook/tree/gh-pages/sonichele/ )
+[Sonichele read me]( http://theo-armour.github.io/cookbook/sonichele/readme-reader.html )  
+[Sonichele source code]( https://github.com/theo-armour/cookbook/tree/gh-pages/sonichele/ )
 
 
 ## Terrain Try
@@ -29,20 +29,20 @@ Details here: [Terrain Try source code]( https://github.com/theo-armour/cookbook
 
 Show and hide text in an HTML file
 
-Details here: [Show Hide Read Me]( https://github.com/theo-armour/cookbook/tree/gh-pages/show-hide/ )
+Details here: [Show Hide source code]( https://github.com/theo-armour/cookbook/tree/gh-pages/show-hide/ )
 
 
 ## Touch Try
 
 Ways of swiping
 
-Details here: [Touch Try Read Me ]( https://github.com/theo-armour/cookbook/tree/gh-pages/touch-try/ )
+Details here: [Touch Try source code]( https://github.com/theo-armour/cookbook/tree/gh-pages/touch-try/ )
 
 ## LRL Vector Thingy
 
 What does the Laplace–Runge–Lenz vector actually look like?
 
-Details here: [LRL Vector Thingy Read Me]( https://github.com/theo-armour/cookbook/tree/gh-pages/lrl-vector-thingy/ )
+Details here: [LRL Vector Thingy source code]( https://github.com/theo-armour/cookbook/tree/gh-pages/lrl-vector-thingy/ )
 
 
 ## geoJSON on Github
