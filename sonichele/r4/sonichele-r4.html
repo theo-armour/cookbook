@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang=en >
 <head>
-<title>Sonichele R1</title>
+<title>Sonichele R4</title>
 <meta charset=utf-8 >
 <meta name=viewport content=width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0 >
 </head>
@@ -11,45 +11,33 @@
 <script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
 <script>
 
-//	var fileName = '../../plate_coordinates.txt';
-//	var fileName = '../plate_coordinates-lines-0-1000.txt';
-	var fileName = '../film_tensor.csv';
-
-	var start = 50000000;
-	var stop = 100000000;
-	matrix = 126 * 126;
-	frame = 59;
-
+	var startFile = '../film_tensor_1.csv';
+	var start;
+	var length;
+	var frame;
 	var data, numbers;
-
 	var mesh, info, stats, renderer, scene, camera, controls;
 
 	init();
 	animate();
 
 	function init() {
-		var geometry, material;
-
 		document.body.style.cssText = 'font: 600 12pt monospace; margin: 0; overflow: hidden' ;
 
 		info = document.body.appendChild( document.createElement( 'div' ) );
 
 		info.style.cssText = 'left: 20px; position: absolute; top: 0px; ';
-		info.innerHTML = '<h1>' + document.title + '<h1>' +
-			'<div id=msg></div>';
+		info.innerHTML = '<h1>' + document.title + '</h1>' +
+			'<p>File: <select id=selFile >select option<select></p>' +
+			'<div id=msg></div>' +
+			'<div id=count></div>';
 
-		data = requestFile( fileName, start, stop );
-
-		lines = data.split(/\r\n|\n/);
-		var length = lines.length - 1;
-		numbers = [];
-		var sep = ',';
-		for ( var i = 0; i < length; i++ ) {
-			numbers.push( lines[i].split( sep ).map( parseFloat ) );
+		for ( var option, i = 0; i < 10; i++ ) {
+			option = document.createElement( 'option' );
+			option.innerText = '../film_tensor_' + ( 1 + i ) + '.csv';
+			selFile.appendChild( option );
 		}
-		numbers.shift();
-
-		msg.innerHTML = 'Frame: ' + frame + ' numbers read: ' + numbers.length;
+		selFile.onchange = function() { selectFile( selFile.value ); };
 
 		stats = new Stats();
 		stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; zIndex: 100; ';
@@ -61,42 +49,60 @@
 		scene = new THREE.Scene();
 
 		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
-		camera.position.set( 100, 100, 100 );
+		camera.position.set( 200, 200, 200 );
 		controls = new THREE.TrackballControls( camera, renderer.domElement );
 
-
-// mesh
+		var geometry, material, index;
 		geometry = new THREE.PlaneGeometry( 200, 200, 125, 125 );
+
 		geometry.applyMatrix( new THREE.Matrix4().makeRotationX( -Math.PI / 2 ) );
-		material = new THREE.MeshNormalMaterial( { shading: THREE.SmoothShading, side: THREE.DoubleSide, wireframe: false });
+
+		texture = THREE.ImageUtils.loadTexture( "../UV_Grid_Sm.jpg" );
+		material = new THREE.MeshBasicMaterial( { map: texture, shading: THREE.SmoothShading, side: THREE.DoubleSide });
 		mesh = new THREE.Mesh( geometry, material );
 		scene.add( mesh );
 
-/*
-		var index = frame * matrix;
+		selectFile( startFile )
+	}
 
-		for (var i = 0; i < matrix; i++) {
-			mesh.geometry.vertices[i].y = 700 * parseFloat( numbers[ index + i ] );
-			if ( i < 50 ) console.log( index + i, numbers[ index + i ] );
-			if ( i < 50 ) console.log( index + i, numbers[ index + i ] );
+	function selectFile( fname ) {
+		start = frame = ( fname === startFile ) ? 140 : 0;
+		data = requestFile( fname );
+		processData();
+	}
+
+	function requestFile( fname ) {
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.crossOrigin = "Anonymous"; 
+		xmlHttp.open( 'GET', fname, false );
+//		xmlHttp.setRequestHeader('Range', 'bytes=' + start + '-' + stop );
+		xmlHttp.send( null );
+		return xmlHttp.responseText;
+	}
+
+	function processData() {
+		lines = data.split(/\r\n|\n/);
+		length = lines.length - 1;
+		numbers = [];
+		var sep = ',';
+		for ( var i = 0; i < length; i++ ) {
+			numbers.push( lines[i].split( sep ).map( parseFloat ) );
 		}
-*/
+		msg.innerHTML = 'fileName ' + selFile.value  + ' Frames: ' + length;
+	}
 
-	var idx;
-// Alternative version using X and Y
+	function updateFrame() {
 		for ( var x = 0; x < 126; x++ ) {
 			for ( var y = 0; y < 126; y++ ) {
-			idx = x * 126 + y;
-			mesh.geometry.vertices[ idx ].y = 500 * numbers[ frame ][ idx ];
-//			if ( idx < 50 ) msg.innerHTML +=  ( index + idx ) + ' ' + numbers[ index +  idx ]  + '<br>';
+				index = x * 126 + y;
+				mesh.geometry.vertices[ index ].y = 500 * numbers[ frame ][ index ];
 			}
 		} 
 		mesh.geometry.verticesNeedUpdate = true;
 
-		mesh.geometry.computeFaceNormals();
-		mesh.geometry.computeVertexNormals();
-		mesh.geometry.computeTangents();
-		mesh.geometry.computeMorphNormals();
+		frame++;
+		if ( frame >= length ) frame = start;
+		count.innerHTML = 'Frame: ' + frame;
 	}
 
 	function animate() {
@@ -104,15 +110,8 @@
 		renderer.render( scene, camera );
 		controls.update();
 		stats.update();
-	}
 
-	function requestFile( fname, start, stop ) {
-		var xmlHttp = new XMLHttpRequest();
-		xmlHttp.crossOrigin = "Anonymous"; 
-		xmlHttp.open( 'GET', fname, false );
-		xmlHttp.setRequestHeader('Range', 'bytes=' + start + '-' + stop );
-		xmlHttp.send( null );
-		return xmlHttp.responseText;
+		updateFrame();
 	}
 
 </script>
