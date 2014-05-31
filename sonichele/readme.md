@@ -27,11 +27,17 @@ _Sonichele_
 
 * Nice rendering but uses a lot oc computeing power
 
+[Sonichele - full screen (R1)]( http://theo-armour.github.io/cookbook/sonichele/r2/display-plate-coordinates-r2.html )  
+
+
+
 
 [Sonichele - full screen (R1)]( http://theo-armour.github.io/cookbook/sonichele/r1/display-plate-coordinates-r1.html )  
 
-* Display a single frame reading data from a 100MB CSV file
-
+* Displays a single frame.
+* Reads data from a 100MB sample of the full 990MB CSV file
+* takes perhaps a minute to load
+* Nice use of MeshNormalMaterial for rendering
 
 ## Concept
 
