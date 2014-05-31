@@ -11,7 +11,7 @@
 <script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
 <script>
 
-	var startFile = '../film_tensor_1.csv';
+	var startFile = '../data-test/film_tensor_2.csv';
 	var start;
 	var length;
 	var frame;
@@ -28,17 +28,18 @@
 
 		info.style.cssText = 'left: 20px; position: absolute; top: 0px; ';
 		info.innerHTML = '<h1>' + document.title + '</h1>' +
-			'<p>File: <select id=selFile >select option<select></p>' +
+//			'<p>File: <select id=selFile >select option<select></p>' +
 			'<div id=msg></div>' +
 			'<div id=count></div>';
-
+/*
 		for ( var option, i = 0; i < 10; i++ ) {
 			option = document.createElement( 'option' );
 			option.innerText = '../film_tensor_' + ( 1 + i ) + '.csv';
 			selFile.appendChild( option );
 		}
+		selFile.selectedIndex = 2;
 		selFile.onchange = function() { selectFile( selFile.value ); };
-
+*/
 		stats = new Stats();
 		stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; zIndex: 100; ';
 		document.body.appendChild( stats.domElement );
@@ -56,7 +57,7 @@
 		geometry = new THREE.PlaneGeometry( 200, 200, 125, 125 );
 		geometry.applyMatrix( new THREE.Matrix4().makeRotationX( -Math.PI / 2 ) );
 
-		texture = THREE.ImageUtils.loadTexture( "../UV_Grid_Sm.jpg" );
+		texture = THREE.ImageUtils.loadTexture( "../textures/UV_Grid_Sm.jpg" );
 		material = new THREE.MeshBasicMaterial( { map: texture, shading: THREE.SmoothShading, side: THREE.DoubleSide });
 		mesh = new THREE.Mesh( geometry, material );
 		scene.add( mesh );
@@ -87,7 +88,9 @@
 		for ( var i = 0; i < length; i++ ) {
 			numbers.push( lines[i].split( sep ).map( parseFloat ) );
 		}
-		msg.innerHTML = 'fileName ' + selFile.value  + ' Frames: ' + length;
+//		msg.innerHTML = 'fileName ' + selFile.value  + ' Frames: ' + length;
+		msg.innerHTML = 'fileName ' + startFile  + ' Frames: ' + length;
+
 	}
 
 	function updateFrame() {

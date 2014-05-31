@@ -93,8 +93,8 @@ selFile.selectedIndex = 1;
 				geometry.vertices[ index ].y = 500 * numbers[ frame ][ index ];
 			}
 		} 
-		geometry.computeFaceNormals();
-		geometry.computeVertexNormals();
+//		geometry.computeFaceNormals();
+/		geometry.computeVertexNormals();
 		material = new THREE.MeshNormalMaterial( { shading: THREE.SmoothShading, side: THREE.DoubleSide });
 		mesh = new THREE.Mesh( geometry, material );
 		scene.add( mesh );

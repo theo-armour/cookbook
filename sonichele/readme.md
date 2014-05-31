@@ -25,7 +25,7 @@ _Sonichele_
 
 [Sonichele - full screen (R3)]( http://theo-armour.github.io/cookbook/sonichele/r3/sonichele-r3.html )  
 
-* Nice rendering but uses a lot of computeing power
+* Nice rendering but uses a lot of computing power
 
 
 
