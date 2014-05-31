@@ -6,27 +6,36 @@ Sonichele Read Me
 <iframe src="http://theo-armour.github.io/cookbook/sonichele/latest/index.html" width=100% height=500px class='overview' >
 There is an `iframe` here. It is not visible when viewed on github.com. To view, please go to theo-armour.github.io. See 'Project Links' just below.
 </iframe>
-_Sonichele ~ wait until the `loaded frames` count f=goes over 200 the click `run` _
+_Sonichele ~ wait until the `loaded frames` count goes over 200 then click `run`_
 
 [Sonichele PNG - full screen (R1)]( http://theo-armour.github.io/cookbook/sonichele/png-r1/sonichele-png-r1.html ) 
 
 * Reads and animates PNG heightmaps
+* No lights or shadows
+
+
+[Sonichele ~ framset - full screen (R6)]( http://theo-armour.github.io/cookbook/sonichele/r5/sonichele-r5.html ) 
+
+* Reads data from a 1,468 files with five lines of CSV each
+* Files average arounf 800K each
+* Animation has lights and shadows
 
 
 [Sonichele - full screen (R5)]( http://theo-armour.github.io/cookbook/sonichele/r5/sonichele-r5.html ) 
 
-* WIP
+* Reads data from a 100MB sample of the full 990MB CSV file
+* Animation has lights and shadows
 
 
 [Sonichele - full screen (R4)]( http://theo-armour.github.io/cookbook/sonichele/r4/sonichele-r4.html ) 
 
-* Less satisfactory rendering but uses less of the computer 
+* Less satisfactory rendering but uses less of computer rsource
 
 
 [Sonichele - full screen (R3)]( http://theo-armour.github.io/cookbook/sonichele/r3/sonichele-r3.html )  
 
 * Nice rendering but uses a lot of computing power
-
+* Nice use of MeshNormalMaterial for rendering
 
 
 [Sonichele - full screen (R2)]( http://theo-armour.github.io/cookbook/sonichele/r2/display-plate-coordinates-r2.html )  
