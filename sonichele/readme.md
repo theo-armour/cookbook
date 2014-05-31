@@ -8,6 +8,10 @@ There is an `iframe` here. It is not visible when viewed on github.com. To view,
 </iframe>
 _Sonichele ~ wait until the `loaded frames` count goes over 200 then click `run`_
 
+
+[Sonichele PNG - full screen (R2 lights)]( http://theo-armour.github.io/cookbook/sonichele/png-r2/sonichele-png-r2-lights.html ) 
+[Sonichele PNG - full screen (R2 normals)]( http://theo-armour.github.io/cookbook/sonichele/png-r2/sonichele-png-r2-normals.html ) 
+
 [Sonichele PNG - full screen (R1)]( http://theo-armour.github.io/cookbook/sonichele/png-r1/sonichele-png-r1.html ) 
 
 * Reads and animates PNG heightmaps
