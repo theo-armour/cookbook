@@ -8,13 +8,19 @@ There is an `iframe` here. It is not visible when viewed on github.com. To view,
 </iframe>
 _Sonichele_
 
-[Sonichele - full screen (R3)]( http://theo-armour.github.io/cookbook/sonichele/r3/sonichele-r3.html )  
+[Sonichele - full screen (R5)]( http://theo-armour.github.io/cookbook/sonichele/r5/sonichele-r5.html ) 
 
-* Nice rendering but uses a lot oc computeing power
+
 
 [Sonichele - full screen (R4)]( http://theo-armour.github.io/cookbook/sonichele/r4/sonichele-r4.html ) 
 
 * Less satisfactory rendering but uses less of the computer 
+
+[Sonichele - full screen (R3)]( http://theo-armour.github.io/cookbook/sonichele/r3/sonichele-r3.html )  
+
+* Nice rendering but uses a lot oc computeing power
+
+
 
 
 ## Concept
