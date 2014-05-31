@@ -42,7 +42,7 @@
 		camera.position.set( 200, 130, 200 );
 		controls = new THREE.TrackballControls( camera, renderer.domElement );
 
-		var texture = THREE.ImageUtils.loadTexture( './UV_Grid_512.png' );
+		var texture = THREE.ImageUtils.loadTexture( '../textures/UV_Grid_512.png' );
 		img = document.createElement( 'img' );
 		canvas = document.createElement( 'canvas' );
 		canvas.width = 126;
@@ -70,7 +70,7 @@
 		} else {
 			img.onload = callback2;
 		}
-		img.src = './film-tensor-png/frame-' + counter + '.png';
+		img.src = '../film-tensor-png/frame-' + counter + '.png';
 		msg.innerHTML = 'Current frame: ' + pausedCount + ' loaded frames #' + counter;
 		counter++;
 	}

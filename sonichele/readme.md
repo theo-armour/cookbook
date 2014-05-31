@@ -8,9 +8,13 @@ There is an `iframe` here. It is not visible when viewed on github.com. To view,
 </iframe>
 _Sonichele_
 
+[Sonichele PNG - full screen (R1)]( http://theo-armour.github.io/cookbook/sonichele/png-r1/sonichele-png-r1.html ) 
+
+* Reads and animates PNG heightmaps
+
 [Sonichele - full screen (R5)]( http://theo-armour.github.io/cookbook/sonichele/r5/sonichele-r5.html ) 
 
-
+* WIP
 
 [Sonichele - full screen (R4)]( http://theo-armour.github.io/cookbook/sonichele/r4/sonichele-r4.html ) 
 
@@ -21,7 +25,7 @@ _Sonichele_
 * Nice rendering but uses a lot oc computeing power
 
 
-[Sonichele - full screen (R1)]( http://theo-armour.github.io/cookbook/sonichele/r1/sonichele-r1.html )  
+[Sonichele - full screen (R1)]( http://theo-armour.github.io/cookbook/sonichele/r1/display-plate-coordinates-r1.html )  
 
 * Display a single frame reading data from a 100MB CSV file
 
