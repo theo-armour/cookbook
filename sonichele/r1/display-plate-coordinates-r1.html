@@ -12,11 +12,12 @@
 <script>
 
 //	var fileName = '../../plate_coordinates.txt';
-//	var fileName = '../plate_coordinates-lines-0-1000.txt';
-	var fileName = '../film_tensor.csv';
+//	var fileName = '../data-test/plate_coordinates-lines-0-1000.txt';
+//	var fileName = 'c:/temp/data-/film_tensor.csv';
+	var fileName = '../data-test/film_tensor_2.csv';
 
-	var start = 50000000;
-	var stop = 100000000;
+	var start = 0;
+	var stop = 10000000;
 	matrix = 126 * 126;
 	frame = 59;
 
@@ -71,16 +72,6 @@
 		material = new THREE.MeshNormalMaterial( { shading: THREE.SmoothShading, side: THREE.DoubleSide, wireframe: false });
 		mesh = new THREE.Mesh( geometry, material );
 		scene.add( mesh );
-
-/*
-		var index = frame * matrix;
-
-		for (var i = 0; i < matrix; i++) {
-			mesh.geometry.vertices[i].y = 700 * parseFloat( numbers[ index + i ] );
-			if ( i < 50 ) console.log( index + i, numbers[ index + i ] );
-			if ( i < 50 ) console.log( index + i, numbers[ index + i ] );
-		}
-*/
 
 	var idx;
 // Alternative version using X and Y
