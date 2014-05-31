@@ -25,11 +25,14 @@ _Sonichele_
 
 [Sonichele - full screen (R3)]( http://theo-armour.github.io/cookbook/sonichele/r3/sonichele-r3.html )  
 
-* Nice rendering but uses a lot oc computeing power
-
-[Sonichele - full screen (R1)]( http://theo-armour.github.io/cookbook/sonichele/r2/display-plate-coordinates-r2.html )  
+* Nice rendering but uses a lot of computeing power
 
 
+
+[Sonichele - full screen (R2)]( http://theo-armour.github.io/cookbook/sonichele/r2/display-plate-coordinates-r2.html )  
+
+* Reads data from a CSV file with the data of a 13x13 matrix
+* Displays a wireframe animation
 
 
 [Sonichele - full screen (R1)]( http://theo-armour.github.io/cookbook/sonichele/r1/display-plate-coordinates-r1.html )  

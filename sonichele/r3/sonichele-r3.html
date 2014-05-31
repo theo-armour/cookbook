@@ -11,7 +11,7 @@
 <script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
 <script>
 
-	var startFile = '../film_tensor_1.csv';
+	var fname = startFile = '../data-test/film_tensor_2.csv';
 	var start;
 	var length;
 	var frame;
@@ -28,15 +28,16 @@
 
 		info.style.cssText = 'left: 20px; position: absolute; top: 0px; ';
 		info.innerHTML = '<h1>' + document.title + '</h1>' +
-			'<p>File: <select id=selFile >select option<select></p>' +
+//			'<p>File: <select id=selFile >select option<select></p>' +
 			'<div id=msg></div>' +
 			'<div id=count></div>';
 
 		for ( var option, i = 0; i < 10; i++ ) {
 			option = document.createElement( 'option' );
-			option.innerText = '../film_tensor_' + ( 1 + i ) + '.csv';
+			option.innerText = '../data-test/film_tensor_' + ( 1 + i ) + '.csv';
 			selFile.appendChild( option );
 		}
+selFile.selectedIndex = 1;
 		selFile.onchange = function() { selectFile( selFile.value ); };
 
 		stats = new Stats();
@@ -58,7 +59,7 @@
 	function selectFile( fname ) {
 		start = frame = ( fname === startFile ) ? 790 : 0;
 		data = requestFile( fname );
-		processData();
+//		processData();
 	}
 
 	function requestFile( fname ) {
@@ -109,7 +110,7 @@
 		controls.update();
 		stats.update();
 
-		updateFrame();
+//		updateFrame();
 	}
 
 </script>
