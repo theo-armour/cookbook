@@ -6,7 +6,7 @@ Sonichele Read Me
 <iframe src="http://theo-armour.github.io/cookbook/sonichele/latest/index.html" width=100% height=500px class='overview' >
 There is an `iframe` here. It is not visible when viewed on github.com. To view, please go to theo-armour.github.io. See 'Project Links' just below.
 </iframe>
-_Sonichele_
+_Sonichele ~ wait until the `loaded frames` count f=goes over 200 the click `run` _
 
 [Sonichele PNG - full screen (R1)]( http://theo-armour.github.io/cookbook/sonichele/png-r1/sonichele-png-r1.html ) 
 

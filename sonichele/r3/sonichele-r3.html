@@ -31,14 +31,15 @@
 //			'<p>File: <select id=selFile >select option<select></p>' +
 			'<div id=msg></div>' +
 			'<div id=count></div>';
-
+/*
 		for ( var option, i = 0; i < 10; i++ ) {
 			option = document.createElement( 'option' );
 			option.innerText = '../data-test/film_tensor_' + ( 1 + i ) + '.csv';
 			selFile.appendChild( option );
 		}
-selFile.selectedIndex = 1;
+		selFile.selectedIndex = 1;
 		selFile.onchange = function() { selectFile( selFile.value ); };
+*/
 
 		stats = new Stats();
 		stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; zIndex: 100; ';
@@ -53,13 +54,14 @@ selFile.selectedIndex = 1;
 		camera.position.set( 200, 200, 200 );
 		controls = new THREE.TrackballControls( camera, renderer.domElement );
 
-		selectFile( startFile )
+		selectFile( fname )
 	}
 
 	function selectFile( fname ) {
-		start = frame = ( fname === startFile ) ? 790 : 0;
+//		start = frame = ( fname === startFile ) ? 790 : 0;
+		start = frame = 0;
 		data = requestFile( fname );
-//		processData();
+		processData();
 	}
 
 	function requestFile( fname ) {
@@ -79,7 +81,8 @@ selFile.selectedIndex = 1;
 		for ( var i = 0; i < length; i++ ) {
 			numbers.push( lines[i].split( sep ).map( parseFloat ) );
 		}
-		msg.innerHTML = 'fileName ' + selFile.value  + ' Frames: ' + length;
+//		msg.innerHTML = 'fileName ' + selFile.value  + ' Frames: ' + length;
+		msg.innerHTML = 'fileName ' + fname  + ' Frames: ' + length;
 	}
 
 	function updateFrame() {
@@ -93,8 +96,8 @@ selFile.selectedIndex = 1;
 				geometry.vertices[ index ].y = 500 * numbers[ frame ][ index ];
 			}
 		} 
-//		geometry.computeFaceNormals();
-/		geometry.computeVertexNormals();
+		geometry.computeFaceNormals();
+		geometry.computeVertexNormals();
 		material = new THREE.MeshNormalMaterial( { shading: THREE.SmoothShading, side: THREE.DoubleSide });
 		mesh = new THREE.Mesh( geometry, material );
 		scene.add( mesh );
@@ -110,7 +113,7 @@ selFile.selectedIndex = 1;
 		controls.update();
 		stats.update();
 
-//		updateFrame();
+		updateFrame();
 	}
 
 </script>
