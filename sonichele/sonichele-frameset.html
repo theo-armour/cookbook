@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>Sonichele R5</title>
+<meta charset=utf-8 >
+<meta name=viewport content=width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0 >
+</head>
+<body>
+<!--
+<script src=http://mrdoob.github.io/three.js/build/three.min.js ></script>
+-->
+<script src=http://cdnjs.cloudflare.com/ajax/libs/three.js/r66/three.min.js ></script>
+
+<script src=http://mrdoob.github.io/three.js/examples/js/controls/TrackballControls.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
+<script>
+
+	var xmlhttp;
+	var folderFile = 'film_tensor_1/frames';
+
+	var fileCount;
+	var heights;
+	var linesRead;
+	var frame;
+
+	var startTime;
+
+	var mesh, info, stats, renderer, scene, camera, controls;
+
+	init();
+	animate();
+
+	function init() {
+		document.body.style.cssText = 'font: 600 12pt monospace; margin: 0; overflow: hidden' ;
+
+		info = document.body.appendChild( document.createElement( 'div' ) );
+		info.style.cssText = 'background-color: #ccc; height: 400px; left: 20px; opacity: 0.8; overflow-y: auto; padding: 10px; position: absolute; top: 10px; ';
+		info.innerHTML = '<h1>' + document.title + '</h1>' +
+			'<p><button onclick=runFile(); >Run</button></p>' +
+			'<div id=lineReads ></div>' +
+			'<div id=fileReads ></div>' +
+			'<div id=msg ></div>' +
+		'';
+
+		stats = new Stats();
+		stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; zIndex: 100; ';
+		document.body.appendChild( stats.domElement );
+
+		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff }  );
+		renderer.setSize( window.innerWidth, window.innerHeight );
+		renderer.shadowMapEnabled = true;
+		document.body.appendChild( renderer.domElement );
+		scene = new THREE.Scene();
+
+		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 5000 );
+		camera.position.set( 200, 200, 200 );
+		controls = new THREE.TrackballControls( camera, renderer.domElement );
+
+		THREE.ImageUtils.crossOrigin = 'anonymous';
+
+		scene.add( new THREE.AmbientLight( 0x888888 ) );
+
+		var light = new THREE.DirectionalLight( 0xffffff, 1 );
+		light.position.set( 400, 400, 400 );
+		light.castShadow = true;
+		light.shadowMapWidth = 2048;
+		light.shadowMapHeight = 2048;
+		var d = 150;
+		light.shadowCameraLeft = -d;
+		light.shadowCameraRight = d;
+		light.shadowCameraTop = d;
+		light.shadowCameraBottom = -d;
+
+		light.shadowCameraNear = 500;
+		light.shadowCameraFar = 800;
+		light.shadowCameraVisible = true;
+		scene.add( light );
+
+		var geometry, material, index;
+
+		var texture = THREE.ImageUtils.loadTexture( "UV_Grid_Sm.jpg" );
+//		texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+//		texture.anisotropy = 16;
+//		texture.needsUpdate = true;
+//		material = new THREE.MeshNormalMaterial( { map: texture, shading: THREE.SmoothShading, side: THREE.DoubleSide });
+//		material = new THREE.MeshLambertMaterial( { map: texture, color: 0xff2222, shading: THREE.SmoothShading, side: THREE.DoubleSide });
+		material = new THREE.MeshPhongMaterial( {map: texture, color: 0xffaaaa, ambient: 0xaaaaaa, shading: THREE.SmoothShading, shininess: 50, side: THREE.DoubleSide, specular: 0x333333 } );
+
+		geometry = new THREE.SphereGeometry( 30, 30, 30 );
+		mesh = new THREE.Mesh( geometry, material );
+		mesh.castShadow = true;
+		mesh.receiveShadow = true;
+		mesh.position.set( 0, 100, 0 );
+ //		scene.add( mesh );
+
+		geometry = new THREE.PlaneGeometry( 200, 200, 125, 125 );
+		geometry.applyMatrix( new THREE.Matrix4().makeRotationX( -Math.PI / 2 ) );
+		mesh = new THREE.Mesh( geometry, material );
+		mesh.castShadow = true;
+		mesh.receiveShadow = true;
+		scene.add( mesh );
+
+		heights = [];
+	}
+
+	function runFile() {
+		heights = [];
+		fileCount = 1;
+		linesRead = 0;
+		frame = 0;
+		startTime = new Date();
+		requestFile( folderFile + fileCount + '.csv' );
+	}
+
+	function requestFile( fname ) {
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.crossOrigin = "Anonymous"; 
+		xmlhttp.open( 'GET', fname, true );
+		xmlhttp.onreadystatechange = callback;
+		xmlhttp.send( null );
+	}
+
+	function callback() {
+		if ( xmlhttp.readyState == 4  ) {
+			data = xmlhttp.responseText;
+			lines = data.split(/\n/);
+			var sep = ',';
+			for ( var i = 0; i < 5; i++ ) {
+				heights.push( lines[i].split( sep ) );
+			}
+			linesRead += heights.length;
+			lineReads.innerHTML = 'Lines Read: ' + linesRead;
+			fileReads.innerHTML = 'File reads: ' + fileCount + '<br>Time (ms): ' + ( new Date() - startTime);
+
+			msg.innerHTML ='';
+			if ( fileCount >  1467 ) {
+				runFile();
+			}
+		} else {
+//			msg.innerHTML = 'waiting '; // + new Date() + '<br>' +  
+				xmlhttp.readyState + '<br>' + 
+//				xmlhttp.response + '<br>' +  
+				xmlhttp.status + '<br>' + 
+				xmlhttp.statusText;
+			'';
+		}
+	}
+
+	function updateFrame() {
+		if ( frame < 5 ) {
+			for ( var x = 0; x < 126; x++ ) {
+				for ( var y = 0; y < 126; y++ ) {
+					index = x * 126 + y;
+					mesh.geometry.vertices[ index ].y = 500 * heights[ frame ][ index ];
+				}
+			} 
+			mesh.geometry.verticesNeedUpdate = true;
+			frame++;
+		} else {
+			frame = 0;
+			heights = [];
+			fileCount++;
+if ( fileCount === 50 ) fileCount++;
+			requestFile( folderFile + fileCount + '.csv' );
+		}
+	}
+
+	function animate() {
+		requestAnimationFrame( animate );
+		renderer.render( scene, camera );
+		controls.update();
+		stats.update();
+
+		if ( heights.length ) updateFrame();
+	}
+
+</script>
+</body>
+</html>
