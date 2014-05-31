@@ -26,9 +26,10 @@
 		var info = document.body.appendChild( document.createElement( 'div' ) );
 		info.style.cssText = 'left: 20px; position: absolute; top: 0px; width: 100% ';
 		info.innerHTML = '<h1>' + document.title + '</h1>' +
-			'<p><button onclick=counter=pausedCount=1;running=true;loadFrame(); >Restart</button></p>' +
 			'<p><button onclick=counter=pausedCount;running=true;loadFrame(); >Run</button></p>' +
 			'<p><button onclick=running=false;pausedCount=counter; >Pause</button></p>' +
+			'<p><button onclick=counter=pausedCount=1;running=true;loadFrame(); >Restart</button></p>' +
+
 			'<div id=time>Action starts at ~ frame 150</div>' +
 			'<div id=msg>Action starts at ~ frame 150</div>';
 
@@ -85,14 +86,10 @@
 		var imgd = context.getImageData( 0, 0, 126, 126 ).data;
 		var verts = geometry.vertices, elevation;
 		for ( var i = 0, j = 0, len = imgd.length; i < len; i += 4 ) {
-			//elevation = imgd[ i ] + imgd[ i + 1 ] + imgd[ i + 2 ];
 			elevation = ( 256 * imgd[ i + 1 ] + imgd[ i + 2 ] ) - 32768;
 			verts[ j++ ].y = 0.005  * elevation;
 		}
 		mesh.geometry.verticesNeedUpdate = true;
-//		mesh.geometry.computeFaceNormals();
-//		mesh.geometry.computeVertexNormals();
-
 		loadFrame();
 	}
 
@@ -101,7 +98,6 @@
 		controls.update();
 		renderer.render( scene, camera );
 	}
-
 </script>
 </body>
 </html>

@@ -12,13 +12,16 @@ _Sonichele_
 
 * Reads and animates PNG heightmaps
 
+
 [Sonichele - full screen (R5)]( http://theo-armour.github.io/cookbook/sonichele/r5/sonichele-r5.html ) 
 
 * WIP
 
+
 [Sonichele - full screen (R4)]( http://theo-armour.github.io/cookbook/sonichele/r4/sonichele-r4.html ) 
 
 * Less satisfactory rendering but uses less of the computer 
+
 
 [Sonichele - full screen (R3)]( http://theo-armour.github.io/cookbook/sonichele/r3/sonichele-r3.html )  
 
