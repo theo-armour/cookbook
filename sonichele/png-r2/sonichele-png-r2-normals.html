@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang=en>
 <head>
-<title>Sonichele PNG R1</title>
+<title>Sonichele PNG R2 ~ Normals</title>
 <meta charset=utf-8>
 </head>
 <body>
@@ -12,10 +12,10 @@
 	var renderer, scene, camera, controls;
 	var img, canvas, context, geometry, material, mesh;
 	var running = false;
-	var counter = 120;
+	var counter = 140;
 	var pausedCount = 140;
 	var startTime = new Date();
-var obj;
+
 	init();
 	animate();
 
@@ -24,7 +24,7 @@ var obj;
 		css.innerHTML = 'body { font: 600 12pt monospace; margin: 0; overflow: hidden; }';
 
 		var info = document.body.appendChild( document.createElement( 'div' ) );
-		info.style.cssText = 'left: 20px; position: absolute; top: 0px; width: 100% ';
+		info.style.cssText = 'left: 20px; position: absolute; ';
 		info.innerHTML = '<h1>' + document.title + '</h1>' +
 			'<p><button onclick=counter=pausedCount;running=true;loadFrame(); >Run</button></p>' +
 			'<p><button onclick=running=false;pausedCount=counter; >Pause</button></p>' +
@@ -43,16 +43,16 @@ var obj;
 		camera.position.set( 200, 130, 200 );
 		controls = new THREE.TrackballControls( camera, renderer.domElement );
 
-		var texture = THREE.ImageUtils.loadTexture( '../textures/UV_Grid_512.png' );
 		img = document.createElement( 'img' );
 		canvas = document.createElement( 'canvas' );
-		canvas.width = 126;
-		canvas.height = 126;
-
+		canvas.width = canvas.height = 126;
 		context = canvas.getContext( '2d' );
+
 		geometry = new THREE.PlaneGeometry( 200, 200, 125, 125);
 		geometry.applyMatrix( new THREE.Matrix4().makeRotationX( -0.5 * Math.PI ) );
-		material = new THREE.MeshNormalMaterial( { side: THREE.DoubleSide } );
+
+//		var texture = THREE.ImageUtils.loadTexture( '../textures/UV_Grid_512.png' );
+//		material = new THREE.MeshBasiclMaterial( { map: texture; side: THREE.DoubleSide } );
 		material = new THREE.MeshNormalMaterial( { shading: THREE.SmoothShading, side: THREE.DoubleSide } );
 		mesh = new THREE.Mesh( geometry, material );
 

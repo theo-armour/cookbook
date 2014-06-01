@@ -1,23 +1,19 @@
 <!doctype html>
 <html lang=en>
 <head>
-<title>Sonichele PNG R2 ~ Lights</title>
+<title>Sonichele PNG R2 ~ Vectors</title>
 <meta charset=utf-8>
 </head>
 <body>
-<!--
 <script src=http://mrdoob.github.io/three.js/build/three.min.js ></script>
--->
-<script src=http://cdnjs.cloudflare.com/ajax/libs/three.js/r66/three.min.js ></script>
-
 <script src=http://mrdoob.github.io/three.js/examples/js/controls/TrackballControls.js ></script>
 <script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
 <script>
 	var renderer, scene, camera, controls;
-	var img, canvas, context;
+	var img, canvas, context, geometry, material, mesh;
 	var running = false;
-	var counter = 1;
-	var pausedCount = 1;
+	var counter = 140;
+	var pausedCount = 140;
 	var startTime = new Date();
 
 	init();
@@ -28,7 +24,7 @@
 		css.innerHTML = 'body { font: 600 12pt monospace; margin: 0; overflow: hidden; }';
 
 		var info = document.body.appendChild( document.createElement( 'div' ) );
-		info.style.cssText = 'left: 20px; position: absolute; top: 0px; ';
+		info.style.cssText = 'left: 20px; position: absolute; ';
 		info.innerHTML = '<h1>' + document.title + '</h1>' +
 			'<p><button onclick=counter=pausedCount;running=true;loadFrame(); >Run</button></p>' +
 			'<p><button onclick=running=false;pausedCount=counter; >Pause</button></p>' +
@@ -39,8 +35,6 @@
 
 		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff }  );
 		renderer.setSize( window.innerWidth, window.innerHeight );
-		renderer.shadowMapEnabled = true;
-		renderer.shadowMapType = THREE.PCFShadowMap;
 		document.body.appendChild( renderer.domElement );
 
 		scene = new THREE.Scene();
@@ -49,51 +43,22 @@
 		camera.position.set( 200, 130, 200 );
 		controls = new THREE.TrackballControls( camera, renderer.domElement );
 
-		light = new THREE.AmbientLight( 0x888888 );
-		// ambientLight.color.setHSL( 0.1, 0.5, 0.5 );
-		scene.add( light );
-
-		light = new THREE.DirectionalLight( 0xffffff, 0.5 );
-		light.position.set( 500, 500, 500 );
-		light.castShadow = true;
-		scene.add( light );
-
- 		light = new THREE.DirectionalLight( 0xffffff, 0.8 );
-		light.position.set( -500, 500, 500 );
-		light.castShadow = true;
-//		light.shadowMapWidth = 2048;
-//		light.shadowMapHeight = 2048;
-		var d = 150;
-		light.shadowCameraLeft = -d;
-		light.shadowCameraRight = d;
-		light.shadowCameraTop = d;
-		light.shadowCameraBottom = -d;
-
-		light.shadowCameraNear = 500;
-		light.shadowCameraFar = 1000;
-		light.shadowCameraFov = 1000;
-//		light.shadowCameraVisible = true;
-		scene.add( light );
-
 		img = document.createElement( 'img' );
 		canvas = document.createElement( 'canvas' );
-		canvas.width = 126;
-		canvas.height = 126;
+		canvas.width = canvas.height = 126;
 		context = canvas.getContext( '2d' );
 
 		geometry = new THREE.PlaneGeometry( 200, 200, 125, 125);
 		geometry.applyMatrix( new THREE.Matrix4().makeRotationX( -0.5 * Math.PI ) );
 
-		var texture = THREE.ImageUtils.loadTexture( '../textures/UV_Grid_512.png' );
-		texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-		texture.anisotropy = 16;
-//		material = new THREE.MeshBasicMaterial( { map: texture, side: THREE.DoubleSide } );
-		material = new THREE.MeshPhongMaterial( { map: texture, side: THREE.DoubleSide, color: 0xffffff, ambient: 0x888888, specular: 0x888888, shininess: 20, shading: THREE.SmoothShading} );
-
+//		var texture = THREE.ImageUtils.loadTexture( '../textures/UV_Grid_512.png' );
+//		material = new THREE.MeshBasiclMaterial( { map: texture; side: THREE.DoubleSide } );
+		material = new THREE.MeshNormalMaterial( { shading: THREE.SmoothShading, side: THREE.DoubleSide } );
 		mesh = new THREE.Mesh( geometry, material );
-		mesh.receiveShadow = true;
-		mesh.castShadow = true;
+
 		scene.add( mesh );
+		helper = new THREE.FaceNormalsHelper( mesh, 5, 0xff0000 );
+		scene.add( helper );
 
 		loadFrame();
 	}
@@ -111,7 +76,7 @@
 			img.onload = callback2;
 		}
 		img.src = '../film-tensor-png/frame-' + counter + '.png';
-		msg.innerHTML = 'Current frame: ' + pausedCount + ' loaded frames #' + counter;
+		msg.innerHTML = 'Current frame: ' + pausedCount + ' Loaded frames #' + counter;
 		counter++;
 	}
 
@@ -121,14 +86,24 @@
 	}
 
 	function callback() {
+		scene.remove( mesh );
+		scene.remove( helper );
 		context.drawImage( img, 0, 0, 126, 126 ); 
 		var imgd = context.getImageData( 0, 0, 126, 126 ).data;
-		var vertices = geometry.vertices, elevation;
+
+		geo = geometry.clone();		
+		var vertices = geo.vertices, elevation;
 		for ( var i = 0, j = 0, len = imgd.length; i < len; i += 4 ) {
 			elevation = ( 256 * imgd[ i + 1 ] + imgd[ i + 2 ] ) - 32768;
 			vertices[ j++ ].y = 0.005  * elevation;
 		}
-		geometry.verticesNeedUpdate = true;
+		geo.computeFaceNormals();
+		geo.computeVertexNormals();
+
+		mesh = new THREE.Mesh( geo, material );
+		scene.add( mesh );
+		helper = new THREE.FaceNormalsHelper( mesh, 5, 0xff0000 );
+		scene.add( helper );
 		loadFrame();
 	}
 
