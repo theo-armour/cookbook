@@ -58,16 +58,22 @@ _Sonichele ~ wait until the `loaded frames` count goes over 200 then click `run`
 
 * Displays a single frame.
 * Reads data from a 100MB sample of the full 990MB CSV file
-* takes perhaps a minute to load
+* Takes perhaps a minute to load
 * Nice use of MeshNormalMaterial for rendering
 
 ## Concept
+
 
 ### Mission 
 <!-- a statement of a rationale, applicable now as well as in the future -->
 
 * Translate numeric sound data in ASCII format to 3D animations viewable in a browser
-  
+* Data from Michele Ducceschi's research on Wave turbulence in elastic plates
+	* http://ume.ensta-paristech.fr/dfa-theses-et-livres_lang_EN_menu_1
+	* http://www.msc.univ-paris-diderot.fr/~berhanu/Ducceschi.pdf
+	* http://www.ness-music.eu/wp-content/uploads/2013/06/ducceschi_michele.pdf
+
+
 ### Vision 
 <!--  a descriptive picture of a desired future state -->
 
@@ -83,13 +89,10 @@ _Sonichele ~ wait until the `loaded frames` count goes over 200 then click `run`
 * Add logarithmic vertical scale
 * Enhance rendering, shading and lighting
 * Provide frame by frame movement
-* Access full-size data sets
-* Make the data available in compressed binary files
+
 
 ## Issues /Bugs
 
-* Colors not updating properly
-* Only plays limited portion of the data / data split into 10 separate files in order to get data up to github
 
 
 ## Project Links
@@ -124,6 +127,16 @@ Bugs on browsers other than Chrome need not be reported until such time as the w
 This repository contains files that are at an early and volatile stage. Not all licensing requirements may have been fully met let alone identified. It is the intension of the authors to play fair and all such requirements will either be met or the feature in question will turned off.
 
 ### Change Log
+
+
+2014-05-31 ~ Theo
+
+* Many new demos
+* Access full-size data sets
+* Make the data available in compressed binary files
+* Colors not updating properly
+* Only plays limited portion of the data / data split into 10 separate files in order to get data up to github
+
 
 2014-05-08 ~ Theo
 
