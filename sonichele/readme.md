@@ -9,10 +9,10 @@ There is an `iframe` here. It is not visible when viewed on github.com. To view,
 _Sonichele ~ wait until the `loaded frames` count goes over 200 then click `run`_
 
 
-[Sonichele PNG - full screen (R2 lights)]( http://theo-armour.github.io/cookbook/sonichele/png-r2/sonichele-png-r2-lights.html ) 
-[Sonichele PNG - full screen (R2 normals)]( http://theo-armour.github.io/cookbook/sonichele/png-r2/sonichele-png-r2-normals.html ) 
-[Sonichele PNG - full screen (R2 simple)]( http://theo-armour.github.io/cookbook/sonichele/png-r2/sonichele-png-r2-simple.html ) 
-[Sonichele PNG - full screen (R2 vectorss)]( http://theo-armour.github.io/cookbook/sonichele/png-r2/sonichele-png-r2-vectors.html ) 
+[Sonichele PNG R2 ~ Lights - full screen]( http://theo-armour.github.io/cookbook/sonichele/png-r2/sonichele-png-r2-lights.html )  
+[Sonichele PNG R2 ~ Normals - full screen]( http://theo-armour.github.io/cookbook/sonichele/png-r2/sonichele-png-r2-normals.html )  
+[Sonichele PNG R2 ~ Simple - full screen]( http://theo-armour.github.io/cookbook/sonichele/png-r2/sonichele-png-r2-simple.html )  
+[Sonichele PNG R2 ~ Vectors - full screen]( http://theo-armour.github.io/cookbook/sonichele/png-r2/sonichele-png-r2-vectors.html ) 
 
 * Experimeting with lights and different materials
 * Normals and Vectors have very heavy CPU demands. Use these locally.
