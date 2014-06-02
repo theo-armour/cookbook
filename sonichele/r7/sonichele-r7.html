@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>Sonichele R7</title>
+<meta charset=utf-8 >
+<meta name=viewport content=width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0 />
+<link rel=stylesheet href=http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css />
+</head>
+<body>
+<script src=http://mrdoob.github.io/three.js/build/three.min.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/controls/TrackballControls.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
+<script src=so.js></script>
+<script src=sofr-file-reader.js></script>
+<script src=soio-input-output.js></script>
+<script src=soth-three.js></script>
+<script>
+
+	SO.init = function() {
+		SO.container = document.body.appendChild( document.createElement( 'div' ) );
+
+		SO.addCSS();
+		SO.addMenu();
+
+		SO.addHR();
+
+		SOFR.addFileReader();
+
+		SO.addAbout();
+
+		SOIO.addInputOutput();
+
+		SOTH.addThreeJS();
+		SOTH.addAssets();
+		SOTH.addThreeFooter();
+
+		window.addEventListener('mouseup', SO.mouseUp, false);
+	}
+
+	SO.animate = function() {
+		requestAnimationFrame( SO.animate );
+		renderer.render( scene, camera );
+		controls.update();
+		stats.update();
+
+		SO.updateFrame();
+	}
+
+	SO.updateFrame = function() {
+		var vertices, elevations, len;
+		if ( !SOFR.heights || !SOFR.heights.length ) return;
+		if ( SOFR.frame >= SOFR.heights.length ) {
+			var nowTime = new Date();
+			divTimes.innerHTML = 'Time in ms: ' + ( nowTime - SOFR.startTime );
+			SOFR.startTime = nowTime;
+			SOFR.frame = 0;
+		}
+		vertices = geometry.vertices;
+		elevations = SOFR.heights[ SOFR.frame ];
+		len = elevations.length;
+		for ( var i = 0; i < len; i++ ) {
+			vertices[ i ].y = 500 * elevations[ i ];
+		}
+		geometry.verticesNeedUpdate = true;
+		divFrame.innerHTML = 'Frame: ' + SOFR.frame;
+
+		SOFR.frame++;
+	}
+
+	SO.init();
+	SO.animate();
+
+</script>
+</body>
+</html>
