@@ -6,7 +6,14 @@ Sonichele Read Me
 <iframe src="http://theo-armour.github.io/cookbook/sonichele/latest/index.html" width=100% height=500px class='overview' >
 There is an `iframe` here. It is not visible when viewed on github.com. To view, please go to theo-armour.github.io. See 'Project Links' just below.
 </iframe>
-_Sonichele ~ wait until the `loaded frames` count goes over 200 then click `run`_
+_Sonichele PNG R1 ~ wait until the `loaded frames` count goes over 200 then click `run`_
+
+[Sonichele R7 - full screen]( http://theo-armour.github.io/cookbook/sonichele/r7/sonichele-r7.html ) 
+
+* Back to reading CSV files
+* Uses HTML 5 File Reader - so you can open ONE file at a time
+* Enables you to open and replay any suitable local file
+* File size limit appears to be about 200 MB
 
 
 [Sonichele PNG R2 ~ Lights - full screen]( http://theo-armour.github.io/cookbook/sonichele/png-r2/sonichele-png-r2-lights.html )  
@@ -14,7 +21,7 @@ _Sonichele ~ wait until the `loaded frames` count goes over 200 then click `run`
 [Sonichele PNG R2 ~ Simple - full screen]( http://theo-armour.github.io/cookbook/sonichele/png-r2/sonichele-png-r2-simple.html )  
 [Sonichele PNG R2 ~ Vectors - full screen]( http://theo-armour.github.io/cookbook/sonichele/png-r2/sonichele-png-r2-vectors.html ) 
 
-* Experimeting with lights and different materials
+* Experimenting with lights and different materials
 * Normals and Vectors have very heavy CPU demands. Use these locally.
 
 
@@ -24,10 +31,10 @@ _Sonichele ~ wait until the `loaded frames` count goes over 200 then click `run`
 * No lights or shadows
 
 
-[Sonichele ~ framset - full screen (R6)]( http://theo-armour.github.io/cookbook/sonichele/r5/sonichele-r5.html ) 
+[Sonichele ~ frameset - full screen (R6)]( http://theo-armour.github.io/cookbook/sonichele/r5/sonichele-r5.html ) 
 
 * Reads data from a 1,468 files with five lines of CSV each
-* Files average arounf 800K each
+* Files average around 800K each
 * Animation has lights and shadows
 
 
@@ -39,7 +46,7 @@ _Sonichele ~ wait until the `loaded frames` count goes over 200 then click `run`
 
 [Sonichele - full screen (R4)]( http://theo-armour.github.io/cookbook/sonichele/r4/sonichele-r4.html ) 
 
-* Less satisfactory rendering but uses less of computer rsource
+* Less satisfactory rendering but uses less of computer resources
 
 
 [Sonichele - full screen (R3)]( http://theo-armour.github.io/cookbook/sonichele/r3/sonichele-r3.html )  

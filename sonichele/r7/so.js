@@ -33,7 +33,7 @@
 	SO.addAbout = function() {
 		var aboutButton = SO.menu.appendChild( document.createElement( 'div' ) );
 		aboutButton.innerHTML =
-			'<a href=# onclick=SO.openDialog(SO.about); ><p class=button >' +
+			'<a href=# onclick=SO.toggleDialogs(SO.about); ><p class=button >' +
 				'<i class="fa fa-paw"></i> About Sonichele...' +
 			'</p></a>'; 
 
@@ -41,30 +41,31 @@
 		SO.about.style.cssText = 'display: none; background-color: #ccc; opacity: 0.9; padding: 20px; ' +
 			'bottom: 0; left: 0; height: 370px; margin: auto; position: absolute; right: 0; top: 0; width: 500px; ';
 		SO.about.innerHTML =
-			'<div >' +
 				'<h3>' + document.title + '</h3>' +
-				'<h4>Features include the following:</h4>' +
+				'<h4>Translates numerical sound data in ASCII format to 3D animations viewable in your browser</h4>' +
+				'<p>Data made available via  Michele Ducceschi\'s research on wave turbulence in elastic plates. See also:</p>' +
 				'<ul>' +
-					'<li>xxx</li>' +
-					'<li>xxx</li>' +
+					'<li><a href="http://www.msc.univ-paris-diderot.fr/~berhanu/Ducceschi.pdf" target="_blank">Numerical Simulations of Wave Turbulence in Elastic Plates Using aFinite Difference Code</a></li>' +
+					'<li><a href="http://www.ness-music.eu/wp-content/uploads/2013/06/ducceschi_michele.pdf" target="_blank">Numerical Simulations of Wave Turbulence in Vibrating Plates</a></li>' +
 				'</ul>' +
-				'<a href="https://github.com/jaanga/xxxxxxxxxxxxxx" target="_blank">Source code</a><br>' +
+
 				'<small>' +
-					'credits: <a href="http://threejs.org" target="_blank">three.js</a> - ' +
+					'<a href="https://github.com/jaanga/xxxxxxxxxxxxxx" target="_blank">Source code</a> ' +
+					'Credits: <a href="http://threejs.org" target="_blank">three.js</a> - ' +
 					'<a href="http://khronos.org/webgl/" target="_blank">webgl</a> - ' +
-					'<a href="http://jaanga.github.io" target="_blank">jaanga</a><br>' +
-					'copyright &copy; 2014 Jaanga authors ~ MIT license' +
+					'<a href="http://sonichele.github.io" target="_blank">Sonichele</a><br>' +
+					'copyright &copy; 2014 Sonichele authors ~ MIT license' +
 				'</small><br><br>' +
+
 				'<p style=text-align:right; >' +
 					'<a class=button href=JavaScript:SO.toggleDialogs(); >Close</a> ' +
-				'</p>' +
-			'</div>';
+				'</p>';
 	};
 
 
 	SO.toggleMenu = function(  ) {
 		var toggle = SO.menu.children[1].style.display === 'none' ? '' : 'none';
-		for (var i = 1; i < TA.menu.children.length; i++) {
+		for (var i = 1; i < SO.menu.children.length; i++) {
 			SO.menu.children[i].style.display = toggle;
 		}
 	};
