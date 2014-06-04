@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>Sonichele R8</title>
+<meta charset=utf-8 />
+<meta name=author content='Theo Armour' />
+<meta name=viewport content=width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0 />
+<link rel=stylesheet href=http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css />
+</head>
+<body>
+<script src=http://mrdoob.github.io/three.js/build/three.min.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/controls/TrackballControls.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
+<script src=so.js></script>
+<script src=sofr-file-reader.js></script>
+<script src=soio-input-output.js></script>
+<script src=soth-three.js></script>
+<script src=soli-lights.js></script>
+<script>
+
+	SO.init = function() {
+		SO.container = document.body.appendChild( document.createElement( 'div' ) );
+
+		SO.addCSS();
+		SO.addGradient();
+
+		SO.addMenu();
+		SO.addHR();
+
+		SOFR.addFileReader();
+
+		SOIO.addInputOutput();
+
+		SOLI.addLightsBox();
+
+		SOTH.addThreeJS();
+		SOTH.addAssets();
+
+		SO.addAbout();
+
+		SOTH.addThreeFooter();
+
+		window.addEventListener('mouseup', SO.mouseUp, false);
+	}
+
+	SO.animate = function() {
+		requestAnimationFrame( SO.animate );
+		controls.update();
+		SO.updateFrame();
+		stats.update();
+		renderer.render( scene, camera );
+	}
+
+	SO.updateFrame = function() {
+		var vertices, elevations, len;
+		if ( !SOFR.heights || !SOFR.heights.length ) return;
+		if ( SOFR.frame >= SOFR.heights.length ) {
+			var nowTime = new Date();
+			divTimes.innerHTML = 'Time in ms: ' + ( nowTime - SOFR.startTime );
+			SOFR.startTime = nowTime;
+			SOFR.frame = 0;
+		}
+		vertices = mesh.geometry.vertices;
+		elevations = SOFR.heights[ SOFR.frame ];
+		len = elevations.length;
+		for ( var i = 0; i < len; i++ ) {
+			vertices[ i ].y = elevations[ i ];
+		}
+		mesh.geometry.verticesNeedUpdate = true;
+		mesh.geometry.computeFaceNormals();
+		mesh.geometry.computeVertexNormals();
+
+		divFrame.innerHTML = 'Frame: ' + SOFR.frame;
+		SOFR.frame++;
+	}
+
+	SO.init();
+	SO.animate();
+
+</script>
+</body>
+</html>

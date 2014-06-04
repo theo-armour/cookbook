@@ -8,6 +8,12 @@ There is an `iframe` here. It is not visible when viewed on github.com. To view,
 </iframe>
 _Sonichele PNG R1 ~ wait until the `loaded frames` count goes over 200 then click `run`_
 
+[Sonichele R8 - full screen]( http://theo-armour.github.io/cookbook/sonichele/r8/sonichele-r8.html ) 
+
+* Adds lights and shadows
+* Adds random gradint background
+* Adds random color, ambient and specualar effects
+
 [Sonichele R7 - full screen]( http://theo-armour.github.io/cookbook/sonichele/r7/sonichele-r7.html ) 
 
 * Back to reading CSV files
