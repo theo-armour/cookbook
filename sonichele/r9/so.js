@@ -34,7 +34,7 @@
 		SO.menu.addEventListener( 'mousedown', SO.mouseMove, false );
 		SO.menu.innerHTML = '<a href=# id=closer ><p><i class="fa fa-bars"></i></p></a>' +
 			'<h1>' +
-				'<a href="" ><i class="fa fa-music"></i> ' + document.title + '</a> ' +
+				'<a href="" title="The appearance of sound" ><i class="fa fa-music"></i> ' + document.title + '</a> ' +
 			'</h1>';
 
 		closer.style.cssText = 'text-decoration: none; ';

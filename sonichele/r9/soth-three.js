@@ -17,6 +17,7 @@
 
 		stats = new Stats();
 		stats.domElement.style.cssText = 'bottom: 10px; opacity: 0.5; position: absolute; right: 10px; ';
+		stats.domElement.title = 'Frames per second. Click to see ms per frame';
 		SO.menu.appendChild( stats.domElement );
 
 	};
