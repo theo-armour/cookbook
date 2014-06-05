@@ -16,6 +16,7 @@ _Sonichele PNG R1 ~ wait until the `loaded frames` count goes over 200 then clic
 	* Adjust position of directional light
 * Adds random gradient background
 * Adds random color, ambient and specualar effects
+* Tries to adjust for height and number of segments automatically
 
 
 [Sonichele R7 - full screen]( http://theo-armour.github.io/cookbook/sonichele/r7/sonichele-r7.html ) 
