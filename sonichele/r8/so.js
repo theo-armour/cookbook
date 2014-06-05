@@ -7,7 +7,7 @@
 			'h1 { margin: 0; }' +
 			'a { text-decoration: none; opacity: 0.8; }' +
 			'#closer p { text-align:right; margin: 0; }' +
-			'#movable { background-color: #ccc; opacity: 0.8; left: 20px; overflow: auto; padding: 10px; position: absolute; top: 20px; }' +
+			'.movable { background-color: #ccc; opacity: 0.8; left: 20px; overflow: auto; padding: 10px; position: absolute; top: 20px; }' +
 			'.button { background-color: #eee; outline: 1px #aaa solid; padding: 5px; }' +
 		'';
 	};
@@ -30,7 +30,7 @@
 
 	SO.addMenu = function() {
 		SO.menu = SO.container.appendChild( document.createElement( 'div' ) );
-		SO.menu.id = 'movable';
+		SO.menu.className = 'movable';
 		SO.menu.addEventListener( 'mousedown', SO.mouseMove, false );
 		SO.menu.innerHTML = '<a href=# id=closer ><p><i class="fa fa-bars"></i></p></a>' +
 			'<h1>' +
@@ -98,7 +98,7 @@
 	};
 
 	SO.mouseMove = function( event ){
-		if ( event.target.id === 'movable' ) {
+		if ( event.target.className === 'movable' ) {
 			event.preventDefault();
 
 			offsetX = event.clientX - event.target.offsetLeft;

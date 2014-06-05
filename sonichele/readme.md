@@ -10,9 +10,13 @@ _Sonichele PNG R1 ~ wait until the `loaded frames` count goes over 200 then clic
 
 [Sonichele R8 - full screen]( http://theo-armour.github.io/cookbook/sonichele/r8/sonichele-r8.html ) 
 
-* Adds lights and shadows
-* Adds random gradint background
+* Adds lights and shadows along with a settings dialog
+	* Toggle dispplay of lights
+	* Toggle display of light helper
+	* Adjust position of directional light
+* Adds random gradient background
 * Adds random color, ambient and specualar effects
+
 
 [Sonichele R7 - full screen]( http://theo-armour.github.io/cookbook/sonichele/r7/sonichele-r7.html ) 
 
@@ -141,6 +145,9 @@ This repository contains files that are at an early and volatile stage. Not all 
 
 ### Change Log
 
+2014-06-04 ~ Theo
+
+* Add R8
 
 2014-05-31 ~ Theo
 
@@ -149,7 +156,8 @@ This repository contains files that are at an early and volatile stage. Not all 
 * Make the data available in compressed binary files
 * Colors not updating properly
 * Only plays limited portion of the data / data split into 10 separate files in order to get data up to github
-
+* Tries to adjust for number of segments per side automatically
+* Tries to adjust vertical scale automatically
 
 2014-05-08 ~ Theo
 

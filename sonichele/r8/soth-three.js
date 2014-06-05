@@ -2,12 +2,12 @@
 	var SOTH = {} || SOTH;
 
 	var controls, renderer, stats, scene, camera;
-	var geometry, material, mesh, helper;
+	var geometry, material, mesh, wires;
 
 	SOTH.addThreeJS = function() {
 		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff }  );
 		renderer.setSize( window.innerWidth, window.innerHeight );
-		renderer.shadowMapEnabled = true;
+//		renderer.shadowMapEnabled = true;
 		renderer.shadowMapSoft = true;
 
 		document.body.appendChild( renderer.domElement );
@@ -35,11 +35,13 @@
 		SOLI.toggleLightPositionCamera();
 		SOLI.toggleLightDirectional();
 
-		SOTH.addGroundPlane();
+		SOTH.updateGroundPlane( 126, 0, 1 );
 	};
 
-	SOTH.addGroundPlane = function() {
-		geometry = new THREE.PlaneGeometry( 1, 1, 125, 125 );
+	SOTH.updateGroundPlane = function( segments, base, scale) {
+		scene.remove( mesh );
+		scene.remove( wires );
+		geometry = new THREE.PlaneGeometry( 1, 1, segments - 1, segments - 1 );
 		geometry.applyMatrix( new THREE.Matrix4().makeRotationX( Math.PI / 2 ) );
 
 //		var texture = THREE.ImageUtils.loadTexture( "../textures/UV_Grid_512.png" );
@@ -56,9 +58,10 @@
 		material = new THREE.MeshPhongMaterial( { ambient: 0xffffff * Math.random(), color: 0xffffff * Math.random(), shininess: 20, side: THREE.DoubleSide, specular: 0xffffff * Math.random(), transparent: true } );
 
 		mesh = new THREE.Mesh( geometry, material );
-		mesh.scale.set( 200, 600, 200 );
-		mesh.castShadow = true;
-		mesh.receiveShadow = true;
+		mesh.scale.set( 200, scale, 200 );
+		mesh.position.y = -base;
+//		mesh.castShadow = true;
+//		mesh.receiveShadow = true;
 		scene.add( mesh );
 
 		wires = mesh.clone();

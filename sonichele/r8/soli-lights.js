@@ -47,7 +47,7 @@
 
 	SOLI.toggleLightPositionCamera = function() {
 		if ( inpLightPositionCamera.checked === true ) {
-			SOLI.lightCameraPosition = new THREE.PointLight( 0xffffff, 0.1 );
+			SOLI.lightCameraPosition = new THREE.PointLight( 0xffffff, 0.3 );
 			SOLI.lightCameraPosition.position = camera.position;
 			scene.add( SOLI.lightCameraPosition );
 
@@ -71,7 +71,7 @@
 	SOLI.toggleLightDirectional = function() {
 		if ( inpLightDirectional.checked === true ) {
 //			SOLI.lightDirectional = new THREE.DirectionalLight( 0xffffff, 0.5 );
-			SOLI.lightDirectional = new THREE.SpotLight( 0xffffff, 1.5 );
+			SOLI.lightDirectional = new THREE.SpotLight( 0xffffff, 1 );
 
 			SOLI.updateLightPosition( rngLightLat.value, rngLightLon.value );
 //			SOLI.lightDirectional.position.set( -50, 50, -50 );
