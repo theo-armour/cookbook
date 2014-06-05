@@ -34,7 +34,7 @@
 		SO.menu.addEventListener( 'mousedown', SO.mouseMove, false );
 		SO.menu.innerHTML = '<a href=# id=closer ><p><i class="fa fa-bars"></i></p></a>' +
 			'<h1>' +
-				'<a href="" title="The appearance of sound" ><i class="fa fa-music"></i> ' + document.title + '</a> ' +
+				'<a href="" title="The hills are alive with the sound of music" ><i class="fa fa-music"></i> ' + document.title + '</a> ' +
 			'</h1>';
 
 		closer.style.cssText = 'text-decoration: none; ';
@@ -55,9 +55,10 @@
 
 		SO.about = SO.container.appendChild( document.createElement( 'div' ) );
 		SO.about.style.cssText = 'display: none; background-color: #ccc; opacity: 0.9; padding: 20px; ' +
-			'bottom: 0; left: 0; height: 370px; margin: auto; position: absolute; right: 0; top: 0; width: 500px; ';
+			'bottom: 0; left: 0; height: 400px; margin: auto; position: absolute; right: 0; top: 0; width: 500px; ';
 		SO.about.innerHTML =
 			'<h3>' + document.title + '</h3>' +
+			'<div><i><small>The hills are alive with the sound of music</small></i></div>' +
 			'<h4>Translates numerical sound data in ASCII format to 3D animations viewable in your browser</h4>' +
 			'<p>Data made available via  Michele Ducceschi\'s research on wave turbulence in elastic plates. See also:</p>' +
 			'<ul>' +
