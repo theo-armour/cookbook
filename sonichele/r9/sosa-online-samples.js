@@ -25,10 +25,10 @@
 					'If you really like what you see, contact Michele Ducceschi who can provide you with access to the gargantuan original data.' +
 				'</i></p>' +
 
-				'<p><button onclick=SOSA.runFile(SOSA.sample1); >Sample 1</button> plate_coordinates_13x13. 1.4 MB. ' +
+				'<p><button onclick=SOSA.runFile(SOSA.sample1); >Sample 1</button> plate_coordinates_13x13. 1.4 MB. 5 seconds to load' +
 					'The first file that worked. </p>' +
-				'<p><button onclick=SOSA.runFile(SOSA.sample2); >Sample 2</button> film_int_signed-150-450. 12 MB.</p>' +
-				'<p><button onclick=SOSA.runFile(SOSA.sample3); >Sample 3</button> film_int_signed-3470-3670 11 MB.</p>' +
+				'<p><button onclick=SOSA.runFile(SOSA.sample2); >Sample 2</button> film_int_signed-150-450. 12 MB. 15 to 30 seconds to load.</p>' +
+				'<p><button onclick=SOSA.runFile(SOSA.sample3); >Sample 3</button> film_int_signed-3470-3670 11 MB.  15 to 30 seconds to load.</p>' +
 				'<div id=lineReads ></div>' +
 				'<div id=fileReads ></div>' +
 				'<div id=msg ></div>' +
