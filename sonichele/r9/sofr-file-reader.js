@@ -69,8 +69,10 @@ console.log( elevations );
 		}
 		txt += 'Frames Read: ' + length + '<br>';
 		divFrames.innerHTML = 'Frames Read: ' + length;
-		testFrame = length < 200 ? length - 1 : 200;
-		length = SOFR.heights[ testFrame ].length
+		testFrame = lines.length < 200 ? lines.length - 2 : 200;
+		testFrame -= 5;  // wtf
+console.log( testFrame, lines.length )
+		length = SOFR.heights[ testFrame ].length;
 		txt += 'Elevations/frame: ' + length + '<br>';
 		divElevations.innerHTML = 'Elevations/frame: ' + length;
 		txt += 'Segments/side: ' + Math.sqrt( length ) + '<br>';

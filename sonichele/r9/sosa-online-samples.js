@@ -3,9 +3,8 @@
 //	SOSA.sample1 = 'http://theo-armour.github.io/cookbook/sonichele/data-test/plate_coordinates_13x13-transposed.csv';
 
 	SOSA.sample1 = '../data-test/plate_coordinates_13x13-transposed.csv';
-	SOSA.sample2 = '../data-test/film_tensor_1.csv';
-	SOSA.sample3 = '../data-test/film_tensor_2.csv';
-	SOSA.sample4 = '../data-test/film_int_signed-1-1700.csv';
+	SOSA.sample2 = '../data-test/film_int_signed-150-450.csv';
+	SOSA.sample3 = '../data-test/film_int_signed-3470-3670.csv';
 
 	SOSA.addOnlineSamples = function() {
 		var OnlineSamplesButton = SO.menu.appendChild( document.createElement( 'div' ) );
@@ -28,9 +27,8 @@
 
 				'<p><button onclick=SOSA.runFile(SOSA.sample1); >Sample 1</button> plate_coordinates_13x13. 1.4 MB. ' +
 					'The first file that worked. </p>' +
-				'<p><button onclick=SOSA.runFile(SOSA.sample2); >Sample 2</button> film_tensor_1. 77 MB.</p>' +
-				'<p><button onclick=SOSA.runFile(SOSA.sample2); >Sample 3</button> film_tensor_3 89 MB.</p>' +
-				'<p><button onclick=SOSA.runFile(SOSA.sample2); >Sample 3</button> film_int_signed-1-1700. 98 MB.</p>' +
+				'<p><button onclick=SOSA.runFile(SOSA.sample2); >Sample 2</button> film_int_signed-150-450. 12 MB.</p>' +
+				'<p><button onclick=SOSA.runFile(SOSA.sample3); >Sample 3</button> film_int_signed-3470-3670 11 MB.</p>' +
 				'<div id=lineReads ></div>' +
 				'<div id=fileReads ></div>' +
 				'<div id=msg ></div>' +
