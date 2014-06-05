@@ -8,6 +8,12 @@ There is an `iframe` here. It is not visible when viewed on github.com. To view,
 </iframe>
 _Sonichele PNG R1 ~ wait until the `loaded frames` count goes over 200 then click `run`_
 
+[Sonichele R9 - full screen]( http://theo-armour.github.io/cookbook/sonichele/r9/sonichele-r9.html ) 
+
+* Adds access to online sample files
+* Adds two three more online samples
+ 
+
 [Sonichele R8 - full screen]( http://theo-armour.github.io/cookbook/sonichele/r8/sonichele-r8.html ) 
 
 * Adds lights and shadows along with a settings dialog
