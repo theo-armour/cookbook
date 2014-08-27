@@ -27,9 +27,6 @@
 	};
 
 	SOFR.readFile = function( that) {
-
-
-
 		if ( that.files && that.files[0]){
 			var reader = new FileReader();
 			divData.innerHTML = 'Loading...';

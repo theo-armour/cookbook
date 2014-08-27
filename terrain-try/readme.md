@@ -11,7 +11,9 @@ There is an `iframe` here. It is not visible when viewed on github.com/fgx. To v
 
 
 ## Concept
-Demonstrating ability to run Jaanga Terrain data in another project
+Demonstrating ability to run Jaanga Terrain data in another project  
+
+* The only issue is that the demo does not work...
 
 ## Features
 Can fork data on server without needing to download to your local computer

@@ -91,7 +91,7 @@ _Sonichele PNG R1 ~ wait until the `loaded frames` count goes over 200 then clic
 ### Mission 
 <!-- a statement of a rationale, applicable now as well as in the future -->
 
-* Translate numeric sound data in ASCII format to 3D animations viewable in a browser
+* Translate numeric sound data in ASCII format to 3D animations viewable in your browser
 * Data from Michele Ducceschi's research on Wave turbulence in elastic plates
 	* http://ume.ensta-paristech.fr/dfa-theses-et-livres_lang_EN_menu_1
 	* http://www.msc.univ-paris-diderot.fr/~berhanu/Ducceschi.pdf
