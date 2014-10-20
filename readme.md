@@ -12,11 +12,14 @@ You have two ways of viewing my files here on GitHub:
 
 ## Mobile Web Template
 
+An HTML/CSS/JavaScript two column, menu & content template for Jaanga and other sites that works well on computer/tablet and phone.
+
+[Mobile Web Template read me]( http://theo-armour.github.io/cookbook/mobile-web-template/ )  
 [Mobile Web Template source code]( https://github.com/theo-armour/cookbook/tree/gh-pages/mobile-web-template )
 
 ## Sonichele
 
-Traslate numeric sound data in ASCII format to 3D animations viewable in a browser
+Translate numeric sound data in ASCII format to 3D animations viewable in a browser
 
 [Sonichele read me]( http://theo-armour.github.io/cookbook/sonichele/readme-reader.html )  
 [Sonichele source code]( https://github.com/theo-armour/cookbook/tree/gh-pages/sonichele/ )
