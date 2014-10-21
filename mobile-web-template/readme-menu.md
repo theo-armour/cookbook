@@ -1,4 +1,4 @@
-[theo-armour](../../index.html ) &raquo; [cookbook]( ../index.html ) &raquo; [terrain-try]( ./index.html )
+[theo-armour](../../index.html ) &raquo; [cookbook]( ../index.html ) &raquo; [mobile web template]( ./index.html )
 ==========================================================================================================
 
 <p id=rm >
