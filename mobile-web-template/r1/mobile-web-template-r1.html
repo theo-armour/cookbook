@@ -15,8 +15,8 @@
 		css = document.body.appendChild( document.createElement('style') );
 		css.innerText = 'body { font: 600 12pt monospace; margin: 0; overflow: hidden; text-align: center; }' +
 			'h1 a {text-decoration: none; }' +
-			'.group { outline: 0px solid red; margin: 0 auto; max-width: 900px; }' +
-			'.group:after { content:""; display: table; clear: both; }' +
+			'#group { outline: 0px solid red; margin: 0 auto; max-width: 900px; }' +
+			'#group:after { content:""; display: table; clear: both; }' +
 			'#menu { outline: 1px solid red; float: left; width: 24%; }' +
 			'#content { outline: 1px solid red; margin: 5px 0 0 25%; }' +
 			'@media screen and (max-width: 480px) { #menu, #content { float: none; margin: 0; width: auto; } }' +
@@ -24,7 +24,7 @@
 
 		var info = document.body.appendChild( document.createElement( 'div' ) );
 		info.innerHTML = '<h1>' + document.title + '</h1>' +
-			'<div class=group >' + 
+			'<div id=group >' + 
 				'<div id=menu >' + txt + '</div>' +
 				'<div id=content >' + txt + txt + '</div>' +
 
