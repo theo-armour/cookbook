@@ -10,6 +10,13 @@ You have two ways of viewing my files here on GitHub:
 * Hosted pages on GitHub: [theo-armour.github.io]( http://theo-armour.github.io/cookbook/ "View the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >  
 * Source code on GitHub: [github.com/theo-armour]( https://github.com/theo-armour/cookbook/ "View the files as source code." )  <scan style=display:none ><< You are now probably here.</scan>
 
+## Iframe Multiple
+
+Use Iframes to load multiple Three.js files into a single html page
+
+[Iframe Multiple web page]( http://theo-armour.github.io/cookbook/iframe-multiple/r1/iframe-multiple.html )  
+[Iframe Multiple source code]( https://github.com/theo-armour/cookbook/tree/gh-pages/iframe-multiple )
+
 ## Mobile Web Template
 
 An HTML/CSS/JavaScript two column, menu & content template for Jaanga and other sites that works well on computer/tablet and phone.
