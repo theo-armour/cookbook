@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>Iframe Multiple</title>
+<meta charset=utf-8 />
+<meta name=author content='Theo Armour' />
+</head>
+<body>
+<script>
+	var ifr, ifr2;
+
+	init();
+
+	function init() {
+
+		var txt = 'lorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?';
+
+		document.body.style.cssText = ' font: bold 12pt monospace; ';
+
+		var info = document.body.appendChild( document.createElement( 'div' ) );
+		info.innerHTML = '<a href="" ><h1>' + document.title + '</h1></a>' +
+			'<div id=msg ></div>' +
+			'<div id=divIfr ></div>' +
+		'';
+
+		for (var i = 0; i < 10; i++) {
+
+			ifr1 = divIfr.appendChild( document.createElement( 'iframe' ) );
+			ifr1.style.cssText = 'display: block; height: 600px; width: 800px; ';
+			ifr1.onload = callback;
+			ifr1.src = 'threejs-template.html';
+
+			ifr2 = divIfr.appendChild( document.createElement( 'iframe' ) );
+			ifr2.style.cssText = 'border-width: 0; display: block; height: 300px; width: 800px; ';
+			ifr2.srcdoc = 
+				'<div style="font: bold 12pt monospace;" >' +
+				'<h1>Thing ' + i + '</h1>' +
+				'<p  >' + txt + '</p>' +
+			'</div>';
+
+		}
+
+		function callback( event ) {
+
+//console.log( event, ifr1 );
+
+		}
+		
+	}
+
+</script>
+</body>
+</html>
