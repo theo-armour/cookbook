@@ -3,6 +3,10 @@
 
 Use Iframes to load multiple Three.js files into a single html page
 
+[Iframe Multiple R3 page]( http://theo-armour.github.io/cookbook/iframe-multiple/r3/iframe-document.html )  
+[Iframe Multiple R3 source code]( https://github.com/theo-armour/cookbook/tree/gh-pages/iframe-multiple/r3/ )
+
+
 [Iframe Multiple All-In-One web page]( http://theo-armour.github.io/cookbook/iframe-multiple/r2/iframe-multiple-all-in-one.html )  
 [Iframe Multiple All-In-One source code]( https://github.com/theo-armour/cookbook/tree/gh-pages/iframe-multiple-all-in-one/r2/iframe-multiple-all-in-one )
 
