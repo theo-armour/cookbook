@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>Sample TA</title>
+<meta charset=utf-8 >
+<meta name=viewport content=width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0 >
+</head>
+<body>
+<script src=http://mrdoob.github.io/three.js/build/three.min.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/controls/OrbitControls.js ></script>
+<script>
+
+	var renderer, scene, camera, controls;
+	var geometry, material, mesh;
+	var pi = Math.PI;
+	var x, y, z;
+
+	var scale = 2;
+
+	var u = 20;
+	var v = 20;
+
+	var sheet;
+	var sheets;
+
+	init();
+	animate();
+
+	function init() {
+
+		hashes = location.hash.split('#');
+
+		if ( hashes.length > 1 ) {
+
+			sheets = hashes[ 1 ];
+
+		} else {
+
+			sheets = 3;
+
+		}
+
+		document.body.style.cssText = 'margin: 0; overflow: hidden; ' ;
+
+		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff }  );
+		renderer.setSize( window.innerWidth, window.innerHeight );
+		document.body.appendChild( renderer.domElement );
+		scene = new THREE.Scene();
+
+		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 0.1, 100 );
+		camera.position.set( 3, 3, 3 );
+		controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+		material = new THREE.MeshNormalMaterial( { shading: THREE.SmoothShading, side: 2 } );
+
+		for ( var i = 0; i < sheets; i++ ) {
+			sheet = i;
+			geometry = new THREE.ParametricGeometry( elevation, u, v );
+			geometry.applyMatrix( new THREE.Matrix4().makeRotationX( -0.5 * Math.PI ) );
+			mesh = new THREE.Mesh( geometry, material );
+			scene.add( mesh );
+		}
+
+		scene.add( new THREE.AxisHelper(scale) );
+	}
+
+
+	function elevation ( u, v ) {
+
+		// both u and v run from zero to one
+		x = scale * ( u - 0.5 );
+		y = scale * ( v - 0.5 );
+		z = Math.pow( Math.sqrt( x * x + y * y ), 1 / sheets ) * Math.cos( 2 * Math.PI * phase( x, y ) );
+
+		return new THREE.Vector3( x, y, z );
+	}
+
+	function phase( x, y) {
+
+		var p = Math.atan2( y, x ) / 2 / Math.PI; 
+
+		if ( p < 0 ) { p = p + 1; }   // keep between zero and one
+
+		p = ( p + sheet ) / sheets;
+
+		return p;
+	}
+
+	function animate() {
+		requestAnimationFrame( animate );
+		renderer.render( scene, camera );
+		controls.update();
+	}
+
+</script>
+</body>
+</html>
