@@ -106,7 +106,7 @@
 			"			geometry = new THREE.ParametricGeometry( elevation, u, v );" +
 			"			geometry.applyMatrix( new THREE.Matrix4().makeRotationX( -0.5 * Math.PI ) );" +
 			"			mesh = new THREE.Mesh( geometry, material );" +
-//			"			mesh.scale.set( 50 / scale, 50 / scale * scale, 50 / scale );" +
+
 			"			scene.add( mesh );" +
 			"		}" +
 
@@ -120,7 +120,7 @@
 
 			"	function elevation ( u, v ) {" +
 			"		var extent = parent.extent;" +
-/// both u and v run from zero to one" +
+/// both u and v run from zero to one
 			"		x = extent * ( u ) - 0.5 * extent;" +
 			"		y = extent * ( v ) - 0.5 * extent;" +
 			"		z = extent * Math.pow( Math.sqrt( x * x + y * y ), 1 / sheets ) * Math.cos( 2 * Math.PI * phase( x, y ) );" +
@@ -181,7 +181,6 @@
 		return ifr;
 
 	}
-
 
 </script>
 </body>
