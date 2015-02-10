@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>iframe-parametric-geometry-zooming</title>
+<meta charset=utf-8 />
+<meta name=viewport content=width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0 />
+<meta name=author content='Theo Armour' />
+</head>
+<body>
+<script>
+
+	var iframe;
+
+	var extent = 1;
+	var sheets = 3;
+
+	init();
+
+	function init() {
+
+		var css = document.body.appendChild( document.createElement('style') );
+		css.innerHTML =
+			'body { font: bold 12pt monospace; left: 0; margin: auto; right: 0; width: 900px; }' +
+			'.webglframe { width: 800px; height: 600px; display: block; margin: auto; overflow: hidden; border: 1px white solid} ' +
+			'';
+
+
+		var info = document.body.appendChild( document.createElement( 'div' ) );
+		info.innerHTML = '<a href="" ><h1>' + document.title + '</h1></a>' +
+			'<div id=msg > &nbsp; </div>' +
+		'';
+
+		iframe = resetIframe( { width: 800, height: 500, css: 'border-width: 5px;', callback: callback } );
+
+		var src = buildTemplate();
+
+		iframe.srcdoc = src;
+
+		info = document.body.appendChild( document.createElement( 'div' ) );
+		info.innerHTML = 
+			'extent <input id=inpExtent type=range min="0.001" max=10 step="0.01" /> ' + 
+			'<button onclick=sheets=6;iframe.srcdoc=buildTemplate(); >sheets=6</button>' +
+		'';
+
+		inpExtent.onchange = function(){
+
+			extent = parseFloat( inpExtent.value );
+			var src = buildTemplate();
+			iframe.srcdoc = src;
+
+		}
+	}
+
+	function callback() {
+
+	}
+
+	function buildTemplate() {
+
+		template =
+			"<body>" +
+			"<script src=http://mrdoob.github.io/three.js/build/three.min.js ><\/script>" +
+			"<script src=http://mrdoob.github.io/three.js/examples/js/controls/OrbitControls.js ><\/script>" +
+			"<script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ><\/script>" +
+			"<script>" +
+
+			"	var info, stats, renderer, scene, camera, controls;" +
+
+			"	var x, y, z;" +
+
+			"	var u = 20;" +
+			"	var v = 20;" +
+
+			"	var sheet;" +
+			"	var sheets = parent.sheets;" +
+
+			"	init();" +
+			"	animate();" +
+
+			"	function init() {" +
+			"		var geometry, material, mesh;" +
+			"		document.body.style.cssText = 'font: 600 12pt monospace; margin: 0; overflow: hidden;' ;" +
+
+			"		stats = new Stats();" +
+			"		stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; z-index: 100; ';" +
+			"		document.body.appendChild( stats.domElement );" +
+
+			"		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff }  );" +
+			"		renderer.setSize( window.innerWidth, window.innerHeight );" +
+			"		renderer.shadowMapEnabled = true;" +
+			"		document.body.appendChild( renderer.domElement );" +
+
+			"		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 0.01, 5000 );" +
+			"		camera.position.set( 1, 1, 1 );" +
+
+			"		controls = new THREE.OrbitControls( camera, renderer.domElement );" +
+
+			"		scene = new THREE.Scene();" +
+
+			"		scene.add( new THREE.AxisHelper( 50 ) );" +
+
+			"		material = new THREE.MeshNormalMaterial( { shading: THREE.SmoothShading, side: 2 } );" +
+
+			"		for ( var i = 0; i < sheets; i++ ) {" +
+			"			sheet = i;" +
+			"			geometry = new THREE.ParametricGeometry( elevation, u, v );" +
+			"			geometry.applyMatrix( new THREE.Matrix4().makeRotationX( -0.5 * Math.PI ) );" +
+			"			mesh = new THREE.Mesh( geometry, material );" +
+//			"			mesh.scale.set( 50 / scale, 50 / scale * scale, 50 / scale );" +
+			"			scene.add( mesh );" +
+			"		}" +
+
+			"		mesh.geometry.computeBoundingBox();" +
+			"		parent.msg.innerHTML = " +
+			"			'extent: ' + parent.extent + '<br>' +" +
+			"			'min xyz: ' + mesh.geometry.boundingBox.min.x + ' ' + mesh.geometry.boundingBox.min.y + ' ' + mesh.geometry.boundingBox.min.z + '<br>' +" +
+			"			'max xyz: ' + mesh.geometry.boundingBox.max.x + ' ' + mesh.geometry.boundingBox.max.y + ' ' + mesh.geometry.boundingBox.max.z + '';" +
+
+			"	}" +
+
+			"	function elevation ( u, v ) {" +
+			"		var extent = parent.extent;" +
+/// both u and v run from zero to one" +
+			"		x = extent * ( u ) - 0.5 * extent;" +
+			"		y = extent * ( v ) - 0.5 * extent;" +
+			"		z = extent * Math.pow( Math.sqrt( x * x + y * y ), 1 / sheets ) * Math.cos( 2 * Math.PI * phase( x, y ) );" +
+			"" +
+			"		return new THREE.Vector3( x, y, z );" +
+			"	}" +
+			"" +
+			"	function phase( x, y ) {" +
+			"" +
+			"		var p = Math.atan2( y, x ) / 2 / Math.PI; " +
+			"" +
+			"		if ( p < 0 ) { p = p + 1; }" +   // keep between zero and one
+			"" +
+			"		p = ( p + sheet ) / sheets;" +
+
+			"		return p;" +
+			"	}" +
+
+			"	function animate() {" +
+
+			"		renderer.render( scene, camera );" +
+			"		controls.update();" +
+			"		stats.update();" +
+			"		requestAnimationFrame( animate );" +
+
+			"	}" +
+
+			"<\/script>" +
+			"<\/body>" +
+		"";
+
+		return template;
+
+	}
+
+	function resetIframe( parameters ) {
+
+		var parameters = parameters || {} ;
+		var width = parameters.width ?  parameters.width : window.innerWidth;
+		var height = parameters.height ? parameters.height : window.height;
+		var css = parameters.css ? parameters.css : 'border-width: 0; position: absolute; z-index: -10';
+		var callback = parameters.callback || function() {};
+
+		var iframes = document.getElementsByTagName( 'iframe' );
+
+		for ( var i = 0, len = iframes.length; i < len; i++ ) {
+
+			iframes[0].parentNode.removeChild( iframes[ 0 ] );
+
+		}
+
+		var ifr = document.body.appendChild( document.createElement( 'iframe' ) );
+		ifr.width = width;
+		ifr.height = height;
+		ifr.style.cssText = css;
+		ifr.onload = callback
+
+		return ifr;
+
+	}
+
+
+</script>
+</body>
+</html>

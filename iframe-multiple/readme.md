@@ -1,6 +1,12 @@
 [Cookbook]( ../index.html ) > [Iframe Multiple Read Me]( index.html )
 ===
 
+Edit the extents of parametric geometry inside an iframe
+
+[Iframe Multiple R3 page]( http://theo-armour.github.io/cookbook/iframe-multiple/r4/iframe-parametric-geometry-zooming.html )  
+[Iframe Multiple R3 source code]( https://github.com/theo-armour/cookbook/tree/gh-pages/iframe-multiple/r4/ )
+
+
 Use Iframes to load multiple Three.js files into a single html page
 
 [Iframe Multiple R3 page]( http://theo-armour.github.io/cookbook/iframe-multiple/r3/iframe-document.html )  

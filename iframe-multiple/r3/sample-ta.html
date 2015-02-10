@@ -68,14 +68,14 @@
 	function elevation ( u, v ) {
 
 		// both u and v run from zero to one
-		x = scale * ( u - 0.5 );
-		y = scale * ( v - 0.5 );
+		x = scale * ( u - 0 ) - 1;
+		y = scale * ( v - 0 ) - 1 ;
 		z = Math.pow( Math.sqrt( x * x + y * y ), 1 / sheets ) * Math.cos( 2 * Math.PI * phase( x, y ) );
 
 		return new THREE.Vector3( x, y, z );
 	}
 
-	function phase( x, y) {
+	function phase( x, y ) {
 
 		var p = Math.atan2( y, x ) / 2 / Math.PI; 
 

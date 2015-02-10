@@ -51,7 +51,14 @@
 
 		mesh = new THREE.GridHelper( 50, 10 );
 		mesh.position.set( 0, -9, 0 );
+
 		scene.add( mesh );
+
+	mesh.geometry.computeBoundingBox();
+		msg.innerHTML = 'min:' + mesh.geometry.boundingBox.min.x + ' ' + mesh.geometry.boundingBox.min.y + ' ' + mesh.geometry.boundingBox.min.z + '<br>' +
+			'max:' + mesh.geometry.boundingBox.max.x + ' ' + mesh.geometry.boundingBox.max.y + ' ' + mesh.geometry.boundingBox.max.z + '';
+
+
 
 // axes
 		var axisHelper = new THREE.AxisHelper( 50 );
