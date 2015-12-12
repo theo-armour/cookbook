@@ -13,7 +13,7 @@ _Say something funny_
 
 ##Overview
 
-### [Show Hide HTML Simple- Demo - Full Screen]( https://github.com/theo-armour/cookbook/tree/gh-pages/show-hide/latest )
+### [Show Hide HTML Simple- Demo - Full Screen]( http://theo-armour.github.io/cookbook/show-hide/latest/ )
 
 <!--
 ### Sample Web Page / Source Code
